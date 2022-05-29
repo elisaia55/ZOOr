@@ -11,8 +11,13 @@ module.exports = (sequelize, DataTypes) => {
     lat: DataTypes.DECIMAL,
     lng: DataTypes.DECIMAL
   }, {});
-  Photo.associate = function(models) {
+  Photo.associate = function (models) {
     // associations can be defined here
+    Photo.hasMany(models.Comment, { foreignKey: 'photoId', onDelete: 'CASCADE', hooks: true });
+    Photo.belongsTo(models.User, { foreignKey: 'userId' });
+    Photo.belongsTo(models.Album, { foreignKey: 'albumId', onDelete: 'CASCADE', hooks: true })
+
+
   };
   return Photo;
 };

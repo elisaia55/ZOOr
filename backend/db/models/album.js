@@ -4,8 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     title: DataTypes.STRING
   }, {});
-  Album.associate = function(models) {
+  Album.associate = function (models) {
     // associations can be defined here
+    Album.hasMany(models.Photo, { foreignKey: 'albumId', onDelete: "CASCADE", hooks: true });
+    Album.belongsTo(models.User, { foreignKey: 'userId' })
   };
   return Album;
 };

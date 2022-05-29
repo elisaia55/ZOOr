@@ -22,7 +22,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/photos'>
+          <Route path="/photos">
             <Photos />
           </Route>
         </Switch>

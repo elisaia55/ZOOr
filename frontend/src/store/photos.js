@@ -4,7 +4,7 @@ const LOAD_PHOTOS = 'photos/LOAD_PHOTOS';
 
 const loadPhotos = (albumPage) => ({
     type: LOAD_PHOTOS,
-    albumPage
+    albumPage,
 });
 
 // THUNK A.C

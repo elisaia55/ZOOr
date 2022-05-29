@@ -1,5 +1,15 @@
- PHOTOS: [
-    {
+'use strict';
+
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    /*
+      Add altering commands here.
+      Return a promise to correctly handle asynchronicity.
+
+      Example:
+      */
+    return queryInterface.bulkInsert('Photos', [
+      {
         userId: 1,
         albumId: 1,
         photoUrl: "https://cdn.pixabay.com/photo/2019/10/13/20/28/gorilla-4547188_960_720.jpg",
@@ -11,9 +21,8 @@
         lng: "-122.271111",
         createdAt: new Date(),
         updatedAt: new Date(),
-
-    },
-       {
+      },
+      {
         userId: 1,
         albumId: 1,
         photoUrl: "https://cdn.pixabay.com/photo/2017/05/19/18/51/lion-2327225_960_720.jpg",
@@ -22,12 +31,12 @@
         city: "Dallas",
         zipCode: "75001",
         lat: "32.779167",
-        lng: " -96.808891",
+        lng: "-96.808891",
         createdAt: new Date(),
         updatedAt: new Date(),
 
-    },
-       {
+      },
+      {
         userId: 1,
         albumId: 1,
         photoUrl: "https://cdn.pixabay.com/photo/2017/10/21/22/58/animal-2876068_960_720.jpg",
@@ -40,16 +49,17 @@
         createdAt: new Date(),
         updatedAt: new Date(),
 
-    }
-]
+      }
+    ], {});
+  },
 
+  down: (queryInterface, Sequelize) => {
+    /*
+      Add reverting commands here.
+      Return a promise to correctly handle asynchronicity.
 
-ALBUMS :
-[
-    {
-        userId: 1,
-        title: "Savages",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-    }
-]
+      Example:
+      return queryInterface.bulkDelete('People', null, {});
+    */
+  }
+};

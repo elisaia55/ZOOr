@@ -1,0 +1,19 @@
+.photo-image-display{
+    border: red 1px dotted;
+    display: grid;
+    justify-content: center;
+    align-content: space-between;
+
+}
+
+.image-photo {
+
+    max-width: 300px;
+    max-height: 300px;
+    padding: 10px;
+}
+
+.Title {
+    color: aqua;
+    text-align: center;
+}

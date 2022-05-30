@@ -11,6 +11,14 @@
     max-width: 300px;
     max-height: 300px;
     padding: 10px;
+    transition: box-shadow 0.2s;
+    transition: width 0.4s;
+}
+
+.image-photo:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    width: 295px;
+    cursor: pointer;
 }
 
 .Title {

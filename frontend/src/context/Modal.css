@@ -1,12 +1,12 @@
 #modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   }
 
   #modal-background {
@@ -20,5 +20,29 @@
 
   #modal-content {
     position: absolute;
-    background-color:white;
+    display: flex;
+    border-radius: .5px;
+    background-color: rgb(255, 255, 255);
+    height: 300px;
+    width: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid black;
+  }
+
+  #modal-form {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-btn{
+    height: 30px;
+    width:177px;
+    top: 10px;
+  }
+
+  #login-container {
+    right: 10px;
   }

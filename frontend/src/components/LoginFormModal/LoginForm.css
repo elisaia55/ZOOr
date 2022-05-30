@@ -1,0 +1,15 @@
+#login-container {
+    display: flex;
+    position: relative;
+    bottom: 20px;
+    width: 150px;
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+#modal-background {
+    filter: blur(200px) contrast(2%) brightness(.50)
+
+}

@@ -14,7 +14,6 @@ module.exports = {
         references: { model: "Users" }
       },
       albumId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: "Albums" }
       },
@@ -34,7 +33,7 @@ module.exports = {
         type: Sequelize.STRING(100)
       },
       zipCode: {
-        allowNull: false,
+
         type: Sequelize.INTEGER
       },
       lat: {

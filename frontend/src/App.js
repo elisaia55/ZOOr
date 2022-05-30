@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Photos from "./components/Photos";
 import NewPhotoForm from "./components/NewPhotoForm";
+import { getPhotos, createPhoto } from "./store/photos"
 
 function App() {
   const dispatch = useDispatch();
@@ -16,19 +17,27 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getPhotos())
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(createPhoto())
+  }, [dispatch])
+
   return (
     <>
       <Navigation isLoaded={ isLoaded } />
       { isLoaded && (
         <Switch>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/photos">
+          <Route exact path="/photos">
             <Photos />
           </Route>
-          <Route path='/photo/new'>
-            <NewPhotoForm />
+          <Route exact path='/photo/new'>
+            { sessionUser && <NewPhotoForm /> }
           </Route>
         </Switch>
       ) }

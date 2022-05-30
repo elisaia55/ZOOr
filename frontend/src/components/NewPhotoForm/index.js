@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Redirect, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import './NewPhotoForm.css'
 import { createPhoto } from "../../store/photos";
@@ -19,10 +19,10 @@ const NewPhotoForm = () => {
     const dispatch = useDispatch();
 
     const handleOnSubmit = async (e) => {
-        const userId = sessionUser.id
-
         e.preventDefault();
 
+
+        const userId = sessionUser.id
         const newPhoto = {
             userId,
             content,
@@ -33,21 +33,22 @@ const NewPhotoForm = () => {
             lat,
             lng
         }
-        dispatch(createPhoto(newPhoto)).catch(async (res) => {
-            const data = await res.json();
-            if (data && data.errors) setErrors(data.errors);
-        })
-        if (errors.length > 0) {
-            history.push('/')
-        }
+        dispatch(createPhoto(newPhoto))
+            .then(() => history.push('/'))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors)
+            });
 
     }
+
+
 
     return (
         <>
             <form id='newPhoto-form' onSubmit={ e => handleOnSubmit(e) }>
                 <ul>
-                    { errors.map((error, i) => <li key={ i }>{ error }</li>) }
+                    { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
                 </ul>
                 <label>Title:</label>
                 <input

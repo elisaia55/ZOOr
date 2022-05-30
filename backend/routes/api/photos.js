@@ -7,16 +7,16 @@ const { requireAuth } = require('../../utils/auth')
 const { check } = require('express-validator')
 
 const validatePhoto = [
-    check('content')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide the title of your photo.')
-        .isLength({ max: 100 })
-        .withMessage('Photo Name must not be more than 100 characters'),
     check('photoUrl')
         .exists({ checkFalsy: true })
         .withMessage('Please provide an image URL')
         .isLength({ max: 1000 })
         .withMessage('Photo URL must not be more than 1000 characters'),
+    check('content')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide the title of your photo.')
+        .isLength({ max: 2000 })
+        .withMessage('Photo Name must not be more than 2000 characters'),
     check('state')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the state of where your photo was taken.')
@@ -43,6 +43,7 @@ const validatePhoto = [
         .withMessage('Must be a number'),
     check('lng')
         .exists({ checkFalsy: true })
+        .withMessage('Please provide the longitude of where your photo was taken')
         .isLength({ max: 25 })
         .withMessage('Longitude must not be more than 25 characters')
         .isDecimal()
@@ -50,10 +51,10 @@ const validatePhoto = [
     handleValidationErrors
 ];
 
-router.get('/', asyncHandler(async function (req, res) {
-    const photos = await Photo.findAll({})
+router.get('/', asyncHandler(async (req, res) => {
+    const photos = await Photo.findAll()
 
-    return res.json(photos)
+    return res.send(photos)
 }))
 
 // testing adding photo

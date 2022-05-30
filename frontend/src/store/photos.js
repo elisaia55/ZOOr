@@ -5,60 +5,57 @@ const ADD_PHOTO = 'photos/ADD_PHOTOS';
 
 
 // THUNK A.C
-const loadPhotos = (albumPage) => ({
+const loadPhotos = (photos) => ({
     type: LOAD_PHOTOS,
-    albumPage,
+    photos
 });
 
 const addPhoto = (photo) => ({
     type: ADD_PHOTO,
-    payload: photo,
+    photo
 });
 
 
 
-export const createPhoto = (photo) => async dispatch => {
-    const response = await csrfFetch(`/api/photos`, {
+export const getPhotos = () => async (dispatch) => {
+    const res = await csrfFetch(`/api/photos`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+
+    });
+    const data = await res.json()
+    dispatch(loadPhotos(data))
+};
+
+export const createPhoto = (photo) => async (dispatch) => {
+    const res = await csrfFetch(`/api/photos`, {
         method: "POST",
+        headers: { "Content-Type": "application/json", },
         body: JSON.stringify(photo)
     });
-    const newPhoto = await response.json();
-    if (newPhoto) {
-
-        dispatch(addPhoto(newPhoto))
-        return newPhoto
+    const createdPhoto = await res.json();
+    console.log("CREATED PHOTO REACHED -------------", createPhoto)
+    if (createdPhoto) {
+        dispatch(addPhoto(createdPhoto))
     }
+    return createdPhoto
 }
-
-
-export const getPhotos = () => async (dispatch) => {
-    const response = await csrfFetch(`/api/photos`);
-
-    if (response.ok) {
-        const albumPage = await response.json();
-        dispatch(loadPhotos(albumPage));
-    }
-};
 
 // REDUCER
 
-const initialState = { photos: null, users: null }
+
 
 const photosReducer = (state = {}, action) => {
     switch (action.type) {
         case LOAD_PHOTOS:
-            const displayPhotos = {};
-            action.albumPage.forEach((photo) => {
-                displayPhotos[photo.id] = photo;
-            });
-            return {
-                ...displayPhotos,
-                ...state,
-            };
+            const newState = {};
+            action.photos.forEach(photo => newState[photo.id] = photo);
+            return newState
         case ADD_PHOTO:
-            const newAddPhotoState = {}
-            newAddPhotoState = { ...state, [action.id]: action }
-            return newAddPhotoState
+            return { ...state, [action.photo.id]: action.photo }
+
         default:
             return state;
     }

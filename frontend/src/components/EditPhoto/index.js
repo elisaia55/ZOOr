@@ -1,0 +1,1 @@
+import './EditPhoto.css'

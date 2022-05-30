@@ -57,11 +57,13 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.send(photos)
 }))
 
-// testing adding photo
+
 
 router.post('/', validatePhoto, requireAuth, asyncHandler(async (req, res) => {
     const newPhoto = await Photo.create(req.body)
     return res.json(newPhoto)
 }))
+
+
 
 module.exports = router;

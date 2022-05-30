@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Photos from "./components/Photos";
 import NewPhotoForm from "./components/NewPhotoForm";
 import { getPhotos, createPhoto } from "./store/photos"
+import EditPhotoForm from "./components/EditPhoto";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route exact path='/photo/new'>
             { sessionUser && <NewPhotoForm /> }
+          </Route>
+          <Route exact path='/photo/edit/:photoId'>
+            <EditPhotoForm />
           </Route>
         </Switch>
       ) }

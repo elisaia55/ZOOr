@@ -43,9 +43,20 @@ export const createPhoto = (photo) => async (dispatch) => {
     return createdPhoto
 }
 
+export const editPhotoThunk = (editPhoto) => async (dispatch) => {
+    const res = await csrfFetch('/api/photos', {
+        method: "PUT",
+        body: JSON.stringify(editPhoto)
+    })
+    const editedPhoto = await res.json()
+    if (editPhoto) {
+        dispatch(addPhoto(editPhoto))
+    }
+    return editedPhoto
+}
+
+
 // REDUCER
-
-
 
 const photosReducer = (state = {}, action) => {
     switch (action.type) {

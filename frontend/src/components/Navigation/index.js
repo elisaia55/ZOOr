@@ -27,23 +27,26 @@ function Navigation({ isLoaded }) {
 
     return (
         <div>
-            <ul className='nav-container'>
-                <li id='auth-btns'>
-                    <NavLink exact to="/">
-                        <button id='home-btn'><img id='home-image-btn' src={ logo } alt="logo"></img></button>
-                    </NavLink>
-                    { isLoaded && sessionLinks }
-                    <NavLink to='/photos' id='photo-btn'>
-                        Photos
-                    </NavLink>
-                    <NavLink to='/photo/new' id='newPhoto-btn'>
-                        upload btn
-                    </NavLink>
-                </li>
 
-            </ul >
+            <div id="nav-header">
+                <ul className='nav-container'>
+                    <li id='auth-btns'>
+                        <NavLink exact to="/">
+                            <button id='home-btn'><img id='home-image-btn' src={ logo } alt="logo"></img></button>
+                        </NavLink>
+                        { isLoaded && sessionLinks }
+                        <NavLink to='/photos' id='photo-btn'>
+                            Photos
+                        </NavLink>
+                        <NavLink to='/photo/new' id='newPhoto-btn'>
+                            upload btn
+                        </NavLink>
+                    </li>
+
+                </ul >
 
 
+            </div>
         </div>
     );
 }

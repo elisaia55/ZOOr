@@ -1,75 +1,81 @@
-
-.splash-signup-btn {
-
-    text-decoration: none;
-    font-size: 28px;
-    border-radius: 3px;
-    background: white;
-    border: none;
-    height: 50px;
-
-
+.image-container {
+    margin:0;
+    padding:0
 }
 
-.btn-txt {
-    text-decoration: none;
-    color: black;
-    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
-    font-weight: 700;
-}
-
-.btn-txt:hover{
-    color: grey;
-}
-
-.splash-title,
-.splash-body-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/*
-.top-section {
+ .slider {
+    overflow: hidden;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/gorilla1.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-    justify-content: center;
-    animation: change 10s infinite ease-in-out;
-} */
-
- .content-container   {
     height: 100vh;
-    width: 100vw;
-    background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/GorillaFix.jpg);
-    background-size:cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    backface-visibility:hidden;
-    animation: slide 25s  infinite 0s;
-    animation-timing-function:ease-in;
-    animation-direction:alternate-reverse;
-    overflow: hidden;
+}
+
+.slider,
+.slide
+ {
+    float:left;
+    width:20%;
+}
+figure {
+    float:left;
+    width:20%;
+}
+
+.slider,
+.slider-img  {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: no-repeat;
+    float: left;
 
 }
-@keyframes slide {
-       0%{
-        background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/GorillaFix.jpg);
 
-    } 20%{
-        background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/Hippo4.jpg);
-    } 40%{
-        background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/Lion3.jpg);
-    } 60%{
-        background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/seaTurtle.jpg);
-    } 80%{
-        background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/swimmingPig.jpg);
-    } 100%{
-        background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/babygorilla2.jpg);
-    }
+figure {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: no-repeat;
+    float: left;
+
+}
+
+.slider figure {
+    position: relative;
+    width:500%;
+    margin:0;
+    animation:animate 20s infinite;
+}
+
+.text-name {
+    position:fixed;
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    padding-top: 250px;
+    /* background: rgba(0, 0, 0, 0.5); */
+    width:100%;
+    height: 100vh;
+
+}
+
+@keyframes animate {
+    0% {left:0%}
+    10% {left:0%}
+    12% {left:-100%}
+    22% {left:-100%}
+    24% {left:-200%}
+    34% {left:-200%}
+    36% {left:-300%}
+    46% {left:-300%}
+    48% {left:-400%}
+    58% {left:-400%}
+    60% {left:-300%}
+    70% {left:-300%}
+    72% {left:-200%}
+    82% {left:-200%}
+    84% {left:-100%}
+    94% {left:-100%}
+    96% {left:0%}
+
+
 }

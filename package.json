@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/elisaia55/Project/issues"
   },
-  "homepage": "https://github.com/elisaia55/Project#readme"
+  "homepage": "https://github.com/elisaia55/Project#readme",
+  "dependencies": {
+    "react-background-slider": "^2.0.0"
+  }
 }

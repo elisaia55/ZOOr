@@ -9,6 +9,10 @@ import NewPhotoForm from "./components/NewPhotoForm";
 import { getPhotos, createPhoto } from "./store/photos"
 import EditPhotoForm from "./components/EditPhoto";
 import SplashPage from "./components/SplashPage";
+import BackgroundSlider from "react-background-slider";
+import img1 from '../src/images/seaTurtle.jpg'
+import img2 from '../src/images/Hippo4.jpg'
+import img3 from '../src/images/Lion3.jpg'
 
 
 function App() {
@@ -34,7 +38,10 @@ function App() {
 
   return (
     <>
+      <div>
 
+
+      </div>
       <Navigation isLoaded={ isLoaded } />
       { isLoaded && (
 

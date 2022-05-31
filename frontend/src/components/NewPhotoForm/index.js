@@ -42,7 +42,7 @@ const NewPhotoForm = () => {
 
     }
 
-
+    if (!sessionUser) return <Redirect to='/signup' />
 
     return (
         <>

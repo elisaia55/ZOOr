@@ -15,5 +15,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elisaia55/Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elisaia55/Project/issues"
+  },
+  "homepage": "https://github.com/elisaia55/Project#readme"
 }

@@ -51,7 +51,7 @@ const SplashPage = () => {
                 <div className="content-container">
                     <h1 className="splash-title">Find your inspiration.
                     </h1>
-                    <h2 className="splash-body-content"> Join the ZOOr community, home to tens of billions of photos and 2 million groups.</h2>
+                    <h2 className="splash-body-content"> Joiin the ZOOr community, home to tens of billions of photos and 2 million groups.</h2>
                     <button className="splash-signup-btn">
                         <Link className="btn-txt" to='/signup'>Start for free</Link>
                     </button>

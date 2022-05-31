@@ -6,6 +6,7 @@ import * as sessionActions from "../../store/session";
 import { useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "../Navigation";
+import { Link } from "react-router-dom";
 
 const SplashPage = () => {
     const sessionUser = useSelector((state) => state.session.user);
@@ -18,7 +19,7 @@ const SplashPage = () => {
     const history = useHistory();
 
 
-    // if (sessionUser) return <Redirect to='/photos' />
+    if (sessionUser) return <Redirect to='/photos' />
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -44,7 +45,21 @@ const SplashPage = () => {
                 }
             );
     }
-    return
+    return (
+        <div className="top-div">
+            <div className="top-section">
+                <div className="content-container">
+                    <h1 className="splash-title">Find your inspiration.
+                    </h1>
+                    <h2 className="splash-body-content"> Join the ZOOr community, home to tens of billions of photos and 2 million groups.</h2>
+                    <button className="splash-signup-btn">
+                        <Link className="btn-txt" to='/signup'>Start for free</Link>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    )
 
 
 }

@@ -44,7 +44,7 @@ export const createPhoto = (photo) => async (dispatch) => {
         body: JSON.stringify(photo)
     });
     const createdPhoto = await res.json();
-    console.log("CREATED PHOTO REACHED -------------", createPhoto)
+
     if (createdPhoto) {
         dispatch(addPhoto(createdPhoto))
     }

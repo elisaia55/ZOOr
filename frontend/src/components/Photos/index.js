@@ -3,6 +3,7 @@ import { getPhotos } from "../../store/photos";
 import { useSelector, useDispatch } from "react-redux";
 import './Photos.css'
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -11,9 +12,8 @@ export default function Photos() {
         return Object.values(state.photos)
     });
     const sessionUser = useSelector(state => state.session.user);
-
     const dispatch = useDispatch();
-
+    const history = useHistory()
     useEffect(() => {
         dispatch(getPhotos())
     }, [dispatch])
@@ -26,10 +26,10 @@ export default function Photos() {
                     { photos.map(photo => (
                         <li key={ photo.id } className='img-li'>
                             <img className="photos" src={ photo.photoUrl }></img>
-                            <div className="photo-title">{ photo.content }</div>
-                            <div className="created">{ photo.createdAt }</div>
+                            <li className="photo-title">{ photo.content }</li>
+                            <li className="created">{ photo.createdAt }</li>
                             <NavLink to='/' className="location"> { photo.city }, { photo.state }  { photo.zipCode }</NavLink>
-                            { sessionUser && <NavLink to={ `/photo/edit/${Photos.id}` }>edit</NavLink> }
+                            { sessionUser && sessionUser.id && <NavLink to={ `/photo/edit/${Photos.id}` }>edit</NavLink> }
                         </li>
 
                     )) }

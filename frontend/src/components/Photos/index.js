@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 
 
-export default function Photos({ photo }) {
+export default function Photos() {
     const photos = useSelector(state => {
         return Object.values(state.photos)
     });
@@ -29,7 +29,7 @@ export default function Photos({ photo }) {
                             <div className="photo-title">{ photo.content }</div>
                             <div className="created">{ photo.createdAt }</div>
                             <NavLink to='/' className="location"> { photo.city }, { photo.state }  { photo.zipCode }</NavLink>
-                            { sessionUser && <NavLink to='/photo/edit/:photoId'>edit</NavLink> }
+                            { sessionUser && <NavLink to={ `/photo/edit/${Photos.id}` }>edit</NavLink> }
                         </li>
 
                     )) }

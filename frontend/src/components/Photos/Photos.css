@@ -16,7 +16,7 @@
 
 .h1-title {
 
-    color: aqua;
+    color: black;
     text-align: center;
 
 }
@@ -45,6 +45,13 @@
 
 }
 
-.created {
+.created,
+.location {
     font-size: smaller;
+    text-decoration: none;
+    color: black
+}
+
+.location:hover {
+    color: aqua;
 }

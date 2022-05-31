@@ -98,5 +98,7 @@ router.delete('/', requireAuth, asyncHandler(async (req, res) => {
     return res.json(req.body.id)
 }))
 
+router.get('/')
+
 
 module.exports = router;

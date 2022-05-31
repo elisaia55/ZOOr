@@ -7,11 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Navigation from "../Navigation";
 import { Link } from "react-router-dom";
 import BackgroundSlider from "react-background-slider";
-import img1 from '../../images/babygorilla2.jpg'
-import img2 from '../../images/gorilla1.jpg'
-import img3 from '../../images/GorillaFix.jpg'
-
-
+import img1 from '../../images/Gorilla1.jpg'
+import img2 from '../../images/Eagle.jpg'
+import img3 from '../../images/Lion.jpg'
+import img4 from '../../images/Panda.jpg'
+import img5 from '../../images/Pigs.jpg'
+import img6 from '../../images/Tiger.jpg'
+import img7 from '../../images/Turtle.jpg'
 
 const SplashPage = () => {
     const sessionUser = useSelector((state) => state.session.user);
@@ -57,15 +59,31 @@ const SplashPage = () => {
                 <figure>
                     <div className="slide">
                         <p className="text-name">Image One</p>
-                        <img className="slider-img" src={ img1 } alt="image"></img>
+                        <img className="slider-img" src={ img1 } alt="image1"></img>
                     </div>
                     <div className="slide">
-                        <p className="text-name">Image One</p>
-                        <img className="slider-img" src={ img2 } alt="image"></img>
+                        <p className="text-name">Image Two</p>
+                        <img className="slider-img" src={ img2 } alt="image2"></img>
                     </div>
                     <div className="slide">
-                        <p className="text-name">Image One</p>
-                        <img className="slider-img" src={ img3 } alt="image"></img>
+                        <p className="text-name">Image Three</p>
+                        <img className="slider-img" src={ img3 } alt="image3"></img>
+                    </div>
+                    <div className="slide">
+                        <p className="text-name">Image Four</p>
+                        <img className="slider-img" src={ img4 } alt="image4"></img>
+                    </div>
+                    <div className="slide">
+                        <p className="text-name">Image Five</p>
+                        <img className="slider-img" src={ img5 } alt="image5"></img>
+                    </div>
+                    <div className="slide">
+                        <p className="text-name">Image Six</p>
+                        <img className="slider-img" src={ img6 } alt="image6"></img>
+                    </div>
+                    <div className="slide">
+                        <p className="text-name">Image Seven</p>
+                        <img className="slider-img" src={ img7 } alt="image7"></img>
                     </div>
                 </figure>
 

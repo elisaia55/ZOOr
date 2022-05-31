@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { useHistory } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
+
+
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
@@ -24,28 +27,34 @@ function ProfileButton({ user }) {
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
-    const history = useHistory();
+    const changeMenu = () => {
+        setShowMenu(!showMenu)
+    }
+
 
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());
-        history.push('/')
+        <Redirect to='/' />
 
 
     };
 
     return (
         <>
-            <button onClick={ openMenu }>
+            <button onClick={ changeMenu }>
                 <i className="fas fa-user-circle" />
             </button>
             { showMenu && (
                 <ul className="profile-dropdown">
                     <li>{ user.username }</li>
                     <li>{ user.email }</li>
-                    <li>
+                    <ul>
+                        <button>PROFILE BUTTON</button>
+                    </ul>
+                    <ul>
                         <button onClick={ logout }>Log Out</button>
-                    </li>
+                    </ul>
                 </ul>
             ) }
         </>

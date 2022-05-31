@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { editPhotoThunk } from '../../store/photos';
@@ -20,6 +20,12 @@ const EditPhotoForm = () => {
     const [errors, setErrors] = useState([]);
     const history = useHistory()
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!sessionUser || sessionUser.id !== editPhoto.userId) {
+            history.push('/')
+        }
+    }, [])
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
@@ -47,73 +53,71 @@ const EditPhotoForm = () => {
 
     return (
         <>
-            { sessionUser && sessionUser.id !== editPhoto.userId && <div>You do not have permission to edit this photo!</div> }
-            { sessionUser && sessionUser.id === editPhoto.userId &&
-                <form id='edit-photo-form' onSubmit={ e => handleOnSubmit(e) }>
+            <form id='edit-photo-form' onSubmit={ e => handleOnSubmit(e) }>
 
-                    <ul>
-                        { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
-                    </ul>
-                    <label>Title:</label>
-                    <input
-                        name='title'
-                        value={ content }
-                        onChange={ e => setContent(e.target.value) }
-                        type="text"
-                        placeholder="Title your photo"
-                    />
-                    <label>Picture URL:</label>
-                    <input
-                        name="photoUrl"
-                        type='text'
-                        value={ photoUrl }
-                        onChange={ e => setPhotoUrl(e.target.value) }
-                        placeholder='Image Url'
-                    />
-                    <label>State:</label>
-                    <input
-                        name="state"
-                        type='text'
-                        value={ state }
-                        onChange={ e => setState(e.target.value) }
-                        placeholder='State of Photo'
-                    />
-                    <label>City:</label>
-                    <input
-                        name="city"
-                        type='text'
-                        value={ city }
-                        onChange={ e => setCity(e.target.value) }
-                        placeholder='City of Photo'
-                    />
-                    <label>ZipCode:</label>
-                    <input
-                        name="zipcode"
-                        type='text'
-                        value={ zipCode }
-                        onChange={ e => setZipcode(e.target.value) }
-                        placeholder='Photo Zipcode'
-                    />
-                    <label>Latitude:</label>
-                    <input
-                        name="latitude"
-                        type='text'
-                        value={ lat }
-                        onChange={ e => setLat(e.target.value) }
-                        placeholder='Photo Latitude'
-                    />
-                    <label>Longitude:</label>
-                    <input
-                        name="longitude"
-                        type='text'
-                        value={ lng }
-                        onChange={ e => setLng(e.target.value) }
-                        placeholder='Photo Longitude'
-                    />
-                    <button id="editPhoto-btn" type="submit">Submit</button>
+                <ul>
+                    { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
+                </ul>
+                <label>Title:</label>
+                <input
+                    name='title'
+                    value={ content }
+                    onChange={ e => setContent(e.target.value) }
+                    type="text"
+                    placeholder="Title your photo"
+                />
+                <label>Picture URL:</label>
+                <input
+                    name="photoUrl"
+                    type='text'
+                    value={ photoUrl }
+                    onChange={ e => setPhotoUrl(e.target.value) }
+                    placeholder='Image Url'
+                />
+                <label>State:</label>
+                <input
+                    name="state"
+                    type='text'
+                    value={ state }
+                    onChange={ e => setState(e.target.value) }
+                    placeholder='State of Photo'
+                />
+                <label>City:</label>
+                <input
+                    name="city"
+                    type='text'
+                    value={ city }
+                    onChange={ e => setCity(e.target.value) }
+                    placeholder='City of Photo'
+                />
+                <label>ZipCode:</label>
+                <input
+                    name="zipcode"
+                    type='text'
+                    value={ zipCode }
+                    onChange={ e => setZipcode(e.target.value) }
+                    placeholder='Photo Zipcode'
+                />
+                <label>Latitude:</label>
+                <input
+                    name="latitude"
+                    type='text'
+                    value={ lat }
+                    onChange={ e => setLat(e.target.value) }
+                    placeholder='Photo Latitude'
+                />
+                <label>Longitude:</label>
+                <input
+                    name="longitude"
+                    type='text'
+                    value={ lng }
+                    onChange={ e => setLng(e.target.value) }
+                    placeholder='Photo Longitude'
+                />
+                <button id="editPhoto-btn" type="submit">Submit</button>
 
-                </form>
-            }
+            </form>
+
         </>
     )
 }

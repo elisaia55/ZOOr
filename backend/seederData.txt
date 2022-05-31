@@ -53,3 +53,53 @@ ALBUMS :
         updatedAt: new Date(),
     }
 ]
+
+
+
+[
+    {
+        userId: 1,
+        photoId: 2,
+        comment: "Engaging. It keeps your mind occupied while you wait."
+    },
+     {
+        userId: 2,
+        photoId: 2,
+        comment: "Nice use of sky blue in this colours."
+    },
+     {
+        userId: 1,
+        photoId: 1,
+        comment: "I want to learn this kind of shape! Teach me."
+    },
+     {
+        userId: 2,
+        photoId: 1,
+        comment: "Let me take a nap... great shot, anyway."
+    },
+     {
+        userId: 3,
+        photoId: 1,
+        comment: "I like your colour palette :)"
+    },
+     {
+        userId: 1,
+        photoId: 3,
+        comment: "Such illustration, many shape, so nice"
+    },
+     {
+        userId: 2,
+        photoId: 3,
+        comment: "Outstandingly revolutionary."
+    },
+     {
+        userId: 1,
+        photoId: 3,
+        comment: "Strong colour palette."
+    },
+     {
+        userId: 3,
+        photoId: 3,
+        comment: "Style, hero, notification, atmosphere – strong m8"
+    },
+]

@@ -32,6 +32,7 @@ function Navigation({ isLoaded }) {
                 <ul className='nav-container'>
                     <li id='auth-btns'>
                         <NavLink id='nav-home-button' exact to="/">
+
                             <button id='home-btn'><img id='home-image-btn' src={ logo } alt="logo"></img></button>
                         </NavLink>
                         { isLoaded && sessionLinks }

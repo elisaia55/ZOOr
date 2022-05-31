@@ -1,8 +1,9 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_PHOTOS = 'photos/LOAD_PHOTOS';
-const ADD_PHOTO = 'photos/ADD_PHOTOS';
-const DELETE_PHOTO = 'photos/DELETE_PHOTOS'
+const ADD_PHOTO = 'photo/ADD_PHOTO';
+const DELETE_PHOTO = 'photo/DELETE_PHOTOS'
+const GET_PHOTO = 'photo/GET_PHOTO'
 
 
 // THUNK A.C
@@ -23,6 +24,13 @@ const deletePhoto = (photoId) => {
     }
 }
 
+const loadPhoto = (soloPhoto) => {
+    return {
+        type: GET_PHOTO,
+        soloPhoto
+    }
+}
+
 
 // THUNKS
 export const getPhotos = () => async (dispatch) => {
@@ -31,10 +39,15 @@ export const getPhotos = () => async (dispatch) => {
     dispatch(loadPhotos(data))
 };
 
+export const getPhoto = (photoId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/photo`);
+    const data = await res.json()
+}
+
+
 export const createPhoto = (photo) => async (dispatch) => {
-    const res = await csrfFetch(`/api/photos`, {
+    const res = await csrfFetch(`/api/photo`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", },
         body: JSON.stringify(photo)
     });
     const createdPhoto = await res.json();
@@ -46,7 +59,7 @@ export const createPhoto = (photo) => async (dispatch) => {
 }
 
 export const editPhotoThunk = (editPhoto) => async (dispatch) => {
-    const res = await csrfFetch('/api/photos', {
+    const res = await csrfFetch('/api/photo', {
         method: "PUT",
         body: JSON.stringify(editPhoto)
     })
@@ -59,7 +72,7 @@ export const editPhotoThunk = (editPhoto) => async (dispatch) => {
 }
 
 export const deletePhotoThunk = (destroyedPhoto) => async (dispatch) => {
-    const res = await csrfFetch('/api/photos', {
+    const res = await csrfFetch('/api/photo', {
         method: "DELETE",
         body: JSON.stringify(destroyedPhoto)
     })

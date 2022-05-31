@@ -26,13 +26,7 @@ const deletePhoto = (photoId) => {
 
 // THUNKS
 export const getPhotos = () => async (dispatch) => {
-    const res = await csrfFetch(`/api/photos`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-
-    });
+    const res = await csrfFetch(`/api/photos`);
     const data = await res.json()
     dispatch(loadPhotos(data))
 };

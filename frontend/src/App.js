@@ -30,11 +30,6 @@ function App() {
     dispatch(getPhotos())
   }, [dispatch])
 
-  useEffect(() => {
-    dispatch(createPhoto())
-  }, [dispatch])
-
-
 
   return (
     <>

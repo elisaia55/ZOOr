@@ -54,7 +54,7 @@ const validatePhoto = [
 router.get('/', asyncHandler(async (req, res) => {
     const photos = await Photo.findAll()
 
-    return res.send(photos)
+    return res.json(photos)
 }))
 
 

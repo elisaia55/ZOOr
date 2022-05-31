@@ -3,20 +3,21 @@
 }
 
 #home-image-btn {
-    max-width: 30px;
-    max-height: 30px;
-    background-color: red;
-    border-radius: 20px;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 120px;
+
+
+}
+#home-image-btn:hover {
+    transform: scale(1.2);
 }
 
+
 #home-btn {
-    background-color: transparent;
-    border-radius: 20px;
-    max-width: 30px;
-    max-height: 30px;
-    padding: 4px;
-    position: relative;
-    right: 20px;
+background-color: transparent;
+border: none;
+
 }
 
 #home-btn:hover {
@@ -27,18 +28,29 @@
 #auth-btns {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     width: 100%;
+    min-width: 965px;
     height: 30px;
-    padding-top: 10px;
-    border: 1px red dotted;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
-.nav-container {
-    background-color: aqua;
+.entire-container {
+display:flex;
+align-items: center;
+justify-content:flex-start;
+margin: 30px 60px;
+margin-right: 30px;
+
 }
 
 #photo-btn,
 #newPhoto-btn{
     text-decoration: none;
+}
+
+#nav-header {
+
 }

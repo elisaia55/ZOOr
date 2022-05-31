@@ -57,11 +57,46 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.send(photos)
 }))
 
-// testing adding photo
+
 
 router.post('/', validatePhoto, requireAuth, asyncHandler(async (req, res) => {
     const newPhoto = await Photo.create(req.body)
     return res.json(newPhoto)
 }))
+
+router.put('/', validatePhoto, requireAuth, asyncHandler(async (req, res) => {
+    const {
+        id,
+        userId,
+        content,
+        photoUrl,
+        state,
+        city,
+        zipCode,
+        lat,
+        lng
+    } = req.body
+
+    const editPhoto = await Photo.findByPk(id)
+    const newPhoto = editPhoto.update(
+        {
+            userId,
+            content,
+            photoUrl,
+            state,
+            city,
+            zipCode,
+            lat,
+            lng
+        })
+    return res.json(newPhoto)
+}))
+
+router.delete('/', requireAuth, asyncHandler(async (req, res) => {
+    const deletePhoto = await Photo.findByPk(req.body.id)
+    await deletePhoto.destroy()
+    return res.json(req.body.id)
+}))
+
 
 module.exports = router;

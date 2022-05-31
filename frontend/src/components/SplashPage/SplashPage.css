@@ -46,7 +46,7 @@
  .content-container   {
     height: 100vh;
     width: 100vw;
-    background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/gorilla1.jpg);
+    background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/GorillaFix.jpg);
     background-size:cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -59,7 +59,7 @@
 }
 @keyframes slide {
        0%{
-        background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/gorilla1.jpg);
+        background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/GorillaFix.jpg);
 
     } 20%{
         background-image: url(/home/augustinoe/appacademy/Module-5-Resources/soloProject/Project/authenticate-me/frontend/src/images/Hippo4.jpg);

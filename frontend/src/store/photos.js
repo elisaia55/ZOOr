@@ -39,14 +39,14 @@ export const getPhotos = () => async (dispatch) => {
     dispatch(loadPhotos(data))
 };
 
-export const getPhoto = (photoId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/photo`);
-    const data = await res.json()
-}
+// export const getPhoto = (photoId) => async (dispatch) => {
+//     const res = await csrfFetch(`/api/photo`);
+//     const data = await res.json()
+// }
 
 
 export const createPhoto = (photo) => async (dispatch) => {
-    const res = await csrfFetch(`/api/photo`, {
+    const res = await csrfFetch(`/api/photos`, {
         method: "POST",
         body: JSON.stringify(photo)
     });
@@ -59,7 +59,7 @@ export const createPhoto = (photo) => async (dispatch) => {
 }
 
 export const editPhotoThunk = (editPhoto) => async (dispatch) => {
-    const res = await csrfFetch('/api/photo', {
+    const res = await csrfFetch('/api/photos', {
         method: "PUT",
         body: JSON.stringify(editPhoto)
     })
@@ -72,7 +72,7 @@ export const editPhotoThunk = (editPhoto) => async (dispatch) => {
 }
 
 export const deletePhotoThunk = (destroyedPhoto) => async (dispatch) => {
-    const res = await csrfFetch('/api/photo', {
+    const res = await csrfFetch('/api/photos', {
         method: "DELETE",
         body: JSON.stringify(destroyedPhoto)
     })

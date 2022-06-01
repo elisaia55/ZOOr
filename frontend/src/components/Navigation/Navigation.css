@@ -34,6 +34,7 @@ border: none;
     padding: 10px;
     justify-content: space-between;
     align-items: center;
+    height: fit-content;
 
 }
 

@@ -54,7 +54,7 @@ const SplashPage = () => {
     }
     return (
         <div className="image-container">
-
+            <div></div>
             <div className="slider">
                 <figure>
                     <div className="slide">
@@ -94,7 +94,7 @@ const SplashPage = () => {
                             </h1>
                             <h2 className="splash-body-content"> Joiin the ZOOr community, home to tens of billions of photos and 2 million groups.</h2>
                             <button className="splash-signup-btn">
-                                <Link className="btn-txt" to='/signup'>Start for free</Link>
+                                {/* <Link className="btn-txt" to='/signup'>Start for free</Link> */ }
                             </button>
 
                         </div>

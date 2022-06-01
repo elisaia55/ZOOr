@@ -16,7 +16,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const sessionUser = useSelector(state => state.session.user)
 
-  const [hideNavBar, setHideNavBar] = useState(false);
+
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -25,13 +25,14 @@ function App() {
 
   return (
     <>
-      <>
-        <Route exact path='/'>
-          <SplashNavigation />
-          <SplashPage />
-        </Route>
-      </>
+
+
+      <Route exact path='/'>
+        <SplashNavigation />
+        <SplashPage />
+      </Route>
       <Navigation isLoaded={ isLoaded } />
+
       { isLoaded && (
 
         <Switch>
@@ -42,13 +43,15 @@ function App() {
             <Photos />
           </Route>
           <Route exact path='/photo/new'>
-            { sessionUser && <NewPhotoForm /> }
+            { sessionUser ? <NewPhotoForm /> : <SignupFormPage /> }
           </Route>
           <Route exact path={ `/photo/edit/${Photos.id}` }>
             <EditPhotoForm />
           </Route>
         </Switch>
       ) }
+
+
     </>
   );
 }

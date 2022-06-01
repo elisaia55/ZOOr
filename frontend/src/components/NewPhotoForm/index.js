@@ -18,6 +18,12 @@ const NewPhotoForm = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        if (!sessionUser) {
+            history.push('/signup')
+        }
+    }, [])
+
     const handleOnSubmit = async (e) => {
         e.preventDefault();
 

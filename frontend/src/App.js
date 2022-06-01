@@ -11,6 +11,8 @@ import EditPhotoForm from "./components/EditPhoto";
 import SplashPage from "./components/SplashPage";
 import SplashNavigation from "./components/SplashNavigation";
 import PhotoDetail from "./components/PhotoDetail";
+import Footer from "./components/Footer";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -32,13 +34,13 @@ function App() {
 
 
         <Navigation isLoaded={ isLoaded } />
-        <Route exact path='/' isLoaded={ isLoaded }>
-          <SplashNavigation />
-          <SplashPage />
-        </Route>
         { isLoaded && (
 
           <Switch>
+            <Route exact path='/' isLoaded={ isLoaded }>
+
+              <SplashPage />
+            </Route>
             <Route exact path="/signup">
               <SignupFormPage />
             </Route>
@@ -54,8 +56,12 @@ function App() {
             <Route exact path='/photo/:photoId'>
               <PhotoDetail />
             </Route>
+            <Route>
+              Page Not Found
+            </Route>
           </Switch>
         ) }
+        <Footer />
 
 
       </>

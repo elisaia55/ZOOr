@@ -1,84 +1,116 @@
-.image-container {
-    margin:0;
-    padding:0;
-    overflow: hidden;
+#root{
+min-height: fit-content;
 
 }
 
- .slider {
-    overflow: hidden;
-    width: 100%;
-    height: 100vh;
-}
 
-.slider,
-.slide
- {
-    float:left;
-    width:20%;
-}
-figure {
-    float:left;
-    width:20%;
-}
+#splash-text-container {
+    width: fit-content;
+    height:fit-content;
 
-.slider,
-.slider-img  {
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: no-repeat;
-    float: left;
+    z-index: 10;
+    position: absolute;
 
-}
-
-figure {
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: no-repeat;
-    float: left;
-
-}
-
-.slider figure {
-    position: relative;
-    width:500%;
-    margin:0;
-    animation:animate 20s infinite;
-}
-
-.text-name {
-    position:absolute;
-    color: white;
-    font-size: 70px;
+    display: block;
+    box-sizing: border-box;
+    margin-left: 213px;
+    margin-right: 213px;
     text-align: center;
-    padding-top: 250px;
-    /* background: rgba(0, 0, 0, 0.5); */
-    width:100%;
-    height: 100vh;
+    max-width: 640px;
+
+    align-items: center;
+    z-index: 0;
+
+    align-content: center;
+    color: white;
+
+    margin: 5px;
+    bottom: 565px;
+}
+
+#splash-title   {
+    font-size: 55px;
+    top: 90px;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+
+}
+
+.splash-p-tag {
+    font-size: 25px;
+    display: block;
+    font-size: 26px;
+    font-weight: 500;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+
+}
+
+
+#video-bg {
+    opacity: 1;
+    transition: .4s .2s;
+    z-index: -1;
+    width: 100%;
+    min-width: 1080px;
 
 
 }
 
-@keyframes animate {
-    0% {left:0%}
-    10% {left:0%}
-    12% {left:-100%}
-    22% {left:-100%}
-    24% {left:-200%}
-    34% {left:-200%}
-    36% {left:-300%}
-    46% {left:-300%}
-    47% {left:-400%}
-    58% {left:-400%}
-    60% {left:-300%}
-    70% {left:-300%}
-    72% {left:-200%}
-    82% {left:-200%}
-    84% {left:-100%}
-    94% {left:-100%}
-    96% {left:0%}
+.video-container{
+    margin: 1px 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-width: 1080px;
+    width: 100%;
+    position: relative;
+}
+
+.splash-nav-container {
+
+  height: 850px;
+  width: 100%;
+
+}
+
+.splash-mainBtn {
+    height: 64px;
+    line-height: 64px;
+    min-width: 200px;
+    border: none;
+    border-radius: 3px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-image-slice: 100%;
+    border-image-width: 1;
+    border-image-repeat: stretch;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right:20px;
+    padding-top: 0px;
+    text-align: center;
+    text-decoration-thickness: auto;
+    transition-delay: 0s;
+    transition-duration: 0.15s;
+    transition-property: color;
+    transition-timing-function: ease-in-out;
+    vertical-align: top;
 
 
+
+}
+
+.splash-mainBtn:hover{
+    color: rgb(139, 139, 133);
+    cursor: pointer;
 }

@@ -37,7 +37,7 @@ const PhotoDetail = () => {
                         <h2 className='photo-detail-date'>{ photo.createdAt }</h2>
                         <h3>
 
-                            <NavLink to='/' className="phot0-detail-location"> { photo.city }, { photo.state }  { photo.zipCode }</NavLink>
+                            <NavLink to='/' className="photo-detail-location"> { photo.city }, { photo.state }  { photo.zipCode }</NavLink>
                         </h3>
 
                     </div>

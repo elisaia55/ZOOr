@@ -1,0 +1,49 @@
+#splash-footer-container{
+display: flex;
+align-items: center;
+width: 100vw;
+justify-content: space-around;
+background-color:black;
+height: 45px;
+position: fixed;
+bottom: 0;
+left:0;
+line-height: 16.8px;
+padding-bottom: 2px;
+text-align: center;
+padding-top: 2px;
+
+
+}
+
+#splash-footer-nav {
+
+    align-items: center;
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: space-around;
+    bottom: 0;
+    left:0;
+    position: relative;
+    padding: 2px;
+}
+
+.footer-btns {
+    text-decoration: none;
+    color: grey;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+    font-size: 14px;
+    line-height: 16.8px;
+    margin-right: 6px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration-style: solid;
+    font-weight: 520;
+
+}
+
+.footer-btns:hover {
+    color: white;
+}

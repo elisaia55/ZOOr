@@ -12,6 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     comment: {
       type: DataTypes.STRING(2000),
       allowNull: false
+    },
+    rating: {
+      type: DataTypes.INTEGER
     }
   }, {});
   Comment.associate = function (models) {

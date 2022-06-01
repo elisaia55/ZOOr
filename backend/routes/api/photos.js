@@ -93,12 +93,13 @@ router.put('/', validatePhoto, requireAuth, asyncHandler(async (req, res) => {
 }))
 
 router.delete('/', requireAuth, asyncHandler(async (req, res) => {
+    console.log('HIT DELETE ROUTE -------------->', req.body.id)
     const deletePhoto = await Photo.findByPk(req.body.id)
     await deletePhoto.destroy()
     return res.json(req.body.id)
 }))
 
-router.get('/')
+
 
 
 module.exports = router;

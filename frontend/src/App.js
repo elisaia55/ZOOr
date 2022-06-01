@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -10,13 +10,14 @@ import { getPhotos, createPhoto } from "./store/photos"
 import EditPhotoForm from "./components/EditPhoto";
 import SplashPage from "./components/SplashPage";
 import SplashNavigation from "./components/SplashNavigation";
+import PhotoDetail from "./components/PhotoDetail";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const sessionUser = useSelector(state => state.session.user)
 
-
+  const location = useLocation()
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -24,35 +25,41 @@ function App() {
 
 
   return (
-    <>
+    isLoaded && (
+
+      <>
 
 
-      <Route exact path='/'>
-        <SplashNavigation />
-        <SplashPage />
-      </Route>
-      <Navigation isLoaded={ isLoaded } />
 
-      { isLoaded && (
+        <Navigation isLoaded={ isLoaded } />
+        <Route exact path='/' isLoaded={ isLoaded }>
+          <SplashNavigation />
+          <SplashPage />
+        </Route>
+        { isLoaded && (
 
-        <Switch>
-          <Route exact path="/signup">
-            <SignupFormPage />
-          </Route>
-          <Route exact path="/photos">
-            <Photos />
-          </Route>
-          <Route exact path='/photo/new'>
-            { sessionUser ? <NewPhotoForm /> : <SignupFormPage /> }
-          </Route>
-          <Route exact path={ `/photo/edit/${Photos.id}` }>
-            <EditPhotoForm />
-          </Route>
-        </Switch>
-      ) }
+          <Switch>
+            <Route exact path="/signup">
+              <SignupFormPage />
+            </Route>
+            <Route exact path="/photos">
+              <Photos />
+            </Route>
+            <Route exact path='/photo/new'>
+              { sessionUser ? <NewPhotoForm /> : <SignupFormPage /> }
+            </Route>
+            <Route exact path='/photo/edit/:photoId'>
+              <EditPhotoForm />
+            </Route>
+            <Route exact path='/photo/:photoId'>
+              <PhotoDetail />
+            </Route>
+          </Switch>
+        ) }
 
 
-    </>
+      </>
+    )
   );
 }
 

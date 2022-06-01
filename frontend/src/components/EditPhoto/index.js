@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { editPhotoThunk } from '../../store/photos';
+import { deletePhotoThunk, editPhotoThunk } from '../../store/photos';
 import './EditPhoto.css'
+import { getPhotos } from "../../store/photos";
+
 
 const EditPhotoForm = () => {
+
     const allPhotos = useSelector(state => state.photos)
     const editPhotoId = useParams().photoId
     const editPhoto = allPhotos[editPhotoId] || {};
@@ -26,6 +29,10 @@ const EditPhotoForm = () => {
             history.push('/')
         }
     }, [])
+
+    useEffect(() => {
+        dispatch(getPhotos())
+    }, [dispatch])
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
@@ -49,6 +56,12 @@ const EditPhotoForm = () => {
                 const data = await res.json()
                 if (data && errors) setErrors(data.errors)
             })
+    }
+
+    const deleteHandler = (e, photo) => {
+        e.preventDefault()
+        dispatch(deletePhotoThunk(editPhoto))
+            .then(() => history.push('/'))
     }
 
     return (
@@ -114,7 +127,12 @@ const EditPhotoForm = () => {
                     onChange={ e => setLng(e.target.value) }
                     placeholder='Photo Longitude'
                 />
-                <button id="editPhoto-btn" type="submit">Submit</button>
+                <div className='edit-btns'>
+                    <button id="editPhoto-btn" type="submit">Submit</button>
+
+                    <button className='photo-detail-deleteBtn' onClick={ (e) => deleteHandler(e, editPhoto) }>DELETE ICON</button>
+
+                </div>
 
             </form>
 

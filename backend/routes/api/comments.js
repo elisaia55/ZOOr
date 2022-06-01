@@ -11,15 +11,16 @@ const validateComment = [
     check('comment')
         .exists({ checkFalsy: true })
         .withMessage('Please Leave a Comment'),
-    check('rating')
-        .exists({ checkFalsy: true })
-        .withMessage("Pleave Leave a Rating."),
     handleValidationErrors
 ];
 
 router.post('/', validateComment, requireAuth, asyncHandler(async (req, res) => {
-    const newComment = await Comment.create(req.body)
-    return res.json(req.body)
+
+    console.log('ENTERED ROUTE')
+    const buildComment = await Comment.build(req.body)
+    console.log('ENTERED ROUTE')
+    const newComment = await buildComment.save()
+    return res.json(newComment)
 }));
 
 router.get('/:photoId', asyncHandler(async (req, res) => {
@@ -29,9 +30,9 @@ router.get('/:photoId', asyncHandler(async (req, res) => {
 }))
 
 router.put('/', requireAuth, validateComment, asyncHandler(async (req, res) => {
-    const { commentId, comment } = req.body;
+    const { commentId, comment, rating } = req.body;
     const updateComment = await Comment.findByPk(commentId)
-    const editedComment = await updateComment.update({ comment })
+    const editedComment = await updateComment.update({ comment, rating })
 
     res.json(editedComment)
 }))

@@ -1,21 +1,10 @@
 import React, { useEffect, useState } from "react";
-import SignupFormPage from "../SignupFormPage";
 import './SplashPage.css'
 import * as sessionActions from "../../store/session";
 import { useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Navigation from "../Navigation";
-import { Link } from "react-router-dom";
-import BackgroundSlider from "react-background-slider";
-import img1 from '../../images/Gorilla1.jpg'
-import img2 from '../../images/Eagle.jpg'
-import img3 from '../../images/Lion.jpg'
-import img4 from '../../images/Panda.jpg'
-import img5 from '../../images/Pigs.jpg'
-import img6 from '../../images/Tiger.jpg'
-import img7 from '../../images/Turtle.jpg'
-import video from '../../images/Wildlife Animals 4K 60FPS (ULTRA HD).mp4'
-import logo from '../../images/Zooer.jpg'
+import video from '../../images/TRIMMED BACKGROUND FINAL.mp4'
+
 
 const SplashPage = () => {
     const sessionUser = useSelector((state) => state.session.user);

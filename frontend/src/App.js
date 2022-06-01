@@ -6,10 +6,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Photos from "./components/Photos";
 import NewPhotoForm from "./components/NewPhotoForm";
-import { getPhotos, createPhoto } from "./store/photos"
 import EditPhotoForm from "./components/EditPhoto";
 import SplashPage from "./components/SplashPage";
-import SplashNavigation from "./components/SplashNavigation";
 import PhotoDetail from "./components/PhotoDetail";
 import Footer from "./components/Footer";
 
@@ -19,7 +17,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const sessionUser = useSelector(state => state.session.user)
 
-  const location = useLocation()
+
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));

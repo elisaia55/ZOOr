@@ -22,4 +22,18 @@ router.post('/', validateComment, requireAuth, asyncHandler(async (req, res) => 
     return res.json(req.body)
 }));
 
+router.get('/:photoId', asyncHandler(async (req, res) => {
+    const photoId = req.params.photoId;
+    const comments = await Comment.findAll({ where: { photoId } })
+    res.json(comments)
+}))
+
+router.put('/', requireAuth, validateComment, asyncHandler(async (req, res) => {
+    const { commentId, comment } = req.body;
+    const updateComment = await Comment.findByPk(commentId)
+    const editedComment = await updateComment.update({ comment })
+
+    res.json(editedComment)
+}))
+
 module.exports = router;

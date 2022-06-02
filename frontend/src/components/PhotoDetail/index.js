@@ -93,7 +93,7 @@ const PhotoDetail = ({ setEditCommentForm }) => {
                 <div id='page-container'>
                     <img id='photo-detail-img' src={ photo.photoUrl }></img>
                     <div id='photo-detail-container'>
-                        { sessionUser && sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ (e) => editHandler(photo) }>EDIT ICON</button> }
+                        { sessionUser && sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ e => editHandler(photo) }>EDIT ICON</button> }
                         <div className='photo-detail-info'>
                             <hr className='photo-detail-hr'></hr>
                             <h1 className='photo-detail-title'>{ photo.content }</h1>

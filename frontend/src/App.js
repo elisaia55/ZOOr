@@ -32,7 +32,7 @@ function App() {
     isLoaded && (
 
       <>
-        <GoogleMaps />
+        {/* <GoogleMaps /> */ }
 
 
 

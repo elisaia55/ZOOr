@@ -7,11 +7,13 @@ import { createComment, getPhotoComments } from '../../store/comment';
 import { editComment } from '../../store/comment'
 import { Modal } from '../../context/Modal'
 import EditCommentModal from './EditCommentModal'
+import InlineEdit from './inLineEditTEST'
+import { stepContentClasses } from '@mui/material'
 
 // import CommentForm from '../CommentForm'
 
 
-const PhotoDetail = ({ setEditCommentForm }) => {
+const PhotoDetail = () => {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -19,8 +21,8 @@ const PhotoDetail = ({ setEditCommentForm }) => {
     const photo = useSelector(state => state.photos)[photoId];
     const comments = Object.values(useSelector(state => state.comments))
 
-    const getUsers = useSelector(state => state.users)
-    const userComment = getUsers[comments.userId]
+    const userId = useSelector(state => state.users)
+    const userComment = userId[comments.userId]
     let sessionUser = useSelector(state => state.session.user);
 
     const dispatch = useDispatch();
@@ -31,31 +33,33 @@ const PhotoDetail = ({ setEditCommentForm }) => {
     const [errors, setErrors] = useState([])
 
 
-    if (!sessionUser) {
-        alert("Please sign in to leave a comment")
-    }
+
+    // if (!sessionUser) {
+    //     alert("Please sign in to leave a comment")
+    // }
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
+        console.log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", { comment, userId, photoId }, { userComment })
+        return dispatch(createComment({ comment, photoId })).then(() => setComment(''))
 
+        // const newComment = {
+        //     comment,
+        //     userId: sessionUser.id,
+        //     photoId: photo.id
+        // }
+        // dispatch(createComment(newComment))
+        //     .then(() => {
 
-        const newComment = {
-            comment,
-            userId: sessionUser.id,
-            photoId: photo.id
-        }
-        dispatch(createComment(newComment))
-            .then(() => {
+        //         setCommentDisplay(false)
+        //     })
+        //     .catch(async (res) => {
+        //         const data = await res.json();
+        //         if (data && data.errors) setErrors(data.errors)
+        //     })
 
-                setCommentDisplay(true)
-            })
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors)
-            })
-
-        console.log("SUCCESFULLY POSTED", comment)
+        // console.log("SUCCESFULLY POSTED", comment)
     }
 
     useEffect(() => {
@@ -69,22 +73,7 @@ const PhotoDetail = ({ setEditCommentForm }) => {
     }
 
     const editHandler = (e) => {
-        e.preventDefault();
-
-        const newEditedComment = {
-            commentId: comment.id,
-            comment,
-            userId: sessionUser.id,
-            photoId: photo.id
-        }
-        dispatch(editComment(newEditedComment))
-            .then(() => {
-                setEditCommentForm(false)
-            })
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors)
-            })
+        history.push(`/photo/edit/${photo.id}`)
     }
 
     return (
@@ -93,7 +82,7 @@ const PhotoDetail = ({ setEditCommentForm }) => {
                 <div id='page-container'>
                     <img id='photo-detail-img' src={ photo.photoUrl }></img>
                     <div id='photo-detail-container'>
-                        { sessionUser && sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ e => editHandler(photo) }>EDIT ICON</button> }
+                        { sessionUser && sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ () => editHandler(photo) }>EDIT ICON</button> }
                         <div className='photo-detail-info'>
                             <hr className='photo-detail-hr'></hr>
                             <h1 className='photo-detail-title'>{ photo.content }</h1>
@@ -115,31 +104,34 @@ const PhotoDetail = ({ setEditCommentForm }) => {
                                     <li key={ idx }>{ error }</li>
                                 ))) : <></> }
                             </ul>
-                            <textarea onChange={ (e) => setComment(e.target.value) } id='comment-text'
-                                placeholder='Leave a Comment Here' value={ comment }>
+                            <form onSubmit={ handleSubmit } className='comment-form'>
 
-                            </textarea>
+                                <textarea onChange={ (e) => setComment(e.target.value) } id='comment-text'
+                                    placeholder='Leave a Comment Here' value={ comment }>
 
-                            <div id='comment-section-div'>
-                                { !comments.length && <p>No Comments Yet</p> }
-                                { (comments.length) && comments.map(comment =>
-                                    <li key={ comment.id } className='comment-li'>
+                                </textarea>
+                                <button type='submit' id='submit-commentBtn' onClick={ (e) => handleSubmit(e) }>SUBMIT COMMENT</button>
 
-                                        <p className='comments-ul' >{ comment.comment } --- { comment.userId }</p>
-                                        { sessionUser.id === comment.userId && <button onClick={ () => setShowModal(true) }>EDIT COMMENT</button> }
+                                <div id='comment-section-div'>
+                                    { !comments.length && <p>No Comments Yet</p> }
+                                    { (comments.length) && comments.map(comment =>
+                                        <li key={ comment.id } className='comment-li'>
 
-                                        { showModal && <Modal onClose={ () => setShowModal(false) }><EditCommentModal /></Modal> }
+                                            <p className='comments-ul' >{ comment.comment } --- { userComment }</p>
+                                            { sessionUser.id === comment.userId && <button onClick={ () => setShowModal(true) }>EDIT COMMENT</button> }
+                                            <InlineEdit />
+                                            { showModal && <Modal onClose={ () => setShowModal(false) }><EditCommentModal /></Modal> }
 
 
 
-                                    </li>
-                                ) }
+                                        </li>
+                                    ) }
 
-                            </div>
+                                </div>
+                            </form>
 
                         </div>
                         <div className='confirm-btns'>
-                            <button type='submit' id='submit-commentBtn' onClick={ (e) => handleSubmit(e) }>SUBMIT COMMENT</button>
                         </div>
 
 

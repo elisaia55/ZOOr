@@ -31,6 +31,7 @@ export const getPhotoComments = (photoId) => async (dispatch) => {
         const photoComments = await res.json()
         dispatch(loadComments(photoComments))
     }
+
 }
 
 export const createComment = (comment) => async (dispatch) => {

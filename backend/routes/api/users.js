@@ -43,4 +43,11 @@ router.post(
     }),
 );
 
+router.get('/', asyncHandler(async (req, res) => {
+    const userName = req.params.userName
+    const name = await User.findOne({ where: { userName } })
+    console.log("ENTERED GET ROUTE FOR USERS ===============>", name)
+    res.json(name)
+}))
+
 module.exports = router;

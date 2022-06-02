@@ -25,12 +25,14 @@ router.post('/', validateComment, requireAuth, asyncHandler(async (req, res) => 
 
 router.get('/:photoId', asyncHandler(async (req, res) => {
     const photoId = req.params.photoId;
+
     const comments = await Comment.findAll({ where: { photoId } })
+    console.log("ENTERED THE GET ROUTE FOR COMMMENTS +++++++", comments)
     res.json(comments)
 }))
 
 router.put('/', requireAuth, validateComment, asyncHandler(async (req, res) => {
-    const { commentId, comment, rating } = req.body;
+    const { commentId, comment } = req.body;
     const updateComment = await Comment.findByPk(commentId)
     const editedComment = await updateComment.update({ comment, rating })
 

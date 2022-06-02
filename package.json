@@ -25,6 +25,13 @@
   },
   "homepage": "https://github.com/elisaia55/Project#readme",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.8.2",
+    "@mui/material": "^5.8.2",
+    "@react-google-maps/api": "^2.12.0",
+    "google-map-react": "^2.1.10",
+    "google-maps-react": "^2.0.6",
     "react-background-slider": "^2.0.0",
     "react-icons": "^4.4.0",
     "react-icons-kit": "^2.0.0"

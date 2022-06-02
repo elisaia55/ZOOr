@@ -10,9 +10,13 @@ import EditPhotoForm from "./components/EditPhoto";
 import SplashPage from "./components/SplashPage";
 import PhotoDetail from "./components/PhotoDetail";
 import Footer from "./components/Footer";
+import GoogleMaps from "./components/GoogleMaps";
 
 
 function App() {
+
+
+
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const sessionUser = useSelector(state => state.session.user)
@@ -28,6 +32,7 @@ function App() {
     isLoaded && (
 
       <>
+        <GoogleMaps />
 
 
 
@@ -64,6 +69,7 @@ function App() {
 
       </>
     )
+
   );
 }
 

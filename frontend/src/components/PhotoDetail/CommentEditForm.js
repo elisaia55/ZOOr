@@ -4,7 +4,7 @@ import { editComment, destroyComment } from '../../store/comment';
 
 
 const CommentEditForm = ({ comment, photo, setEditCommentForm }) => {
-    const [newComment, setNewComment] = useState('')
+    const [newEditComment, setNewEditComment] = useState('')
     let sessionUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     const [errors, setErrors] = useState([]);
@@ -15,8 +15,8 @@ const CommentEditForm = ({ comment, photo, setEditCommentForm }) => {
         e.preventDefault()
 
         const editedComment = {
-            commentId: comment.id,
-            newComment,
+            commentId: comment.commentId,
+            newEditComment,
             userId: sessionUser.id,
             photoId: photo.id
         }
@@ -30,7 +30,7 @@ const CommentEditForm = ({ comment, photo, setEditCommentForm }) => {
             })
     }
 
-    const destroyHandler = (e) => {
+    const deleteHandler = (e) => {
         e.preventDefault()
 
         dispatch(destroyComment(comment))
@@ -40,14 +40,13 @@ const CommentEditForm = ({ comment, photo, setEditCommentForm }) => {
     }
 
     const resetHandler = (e) => {
-
         setEditCommentForm(false)
     }
 
     return (
 
         <div className='comment-form-container'>
-            <p className='comment-form-header'>EDIT COMMENT : { comment }</p>
+            <p className='comment-form-header'>EDIT COMMENT: </p>
             <div className='comment-form'>
                 { errors.length > 0 &&
                     <ul>
@@ -55,15 +54,15 @@ const CommentEditForm = ({ comment, photo, setEditCommentForm }) => {
                     </ul>
                 }
                 <label>Comment</label>
-                <textarea onChange={ e => setNewComment(e.target.value) } id='new-comment-input' type='text' placeholder='New Comment Here' value={ comment }></textarea>
+                <input onChange={ e => setNewEditComment(e.target.value) } id='new-comment-input' type='text' placeholder='New Comment Here' defaultValue={ comment.comment }></input>
                 <div className='comment-button-container'>
-                    <button type='button' id='submission-buttons' onClick={ e => handleEditSubmit(e) }>EDIT</button>
-                    <button type='button' id='submission-buttons' onClick={ e => destroyHandler(e) }>DELETE</button>
-                    <button type='button' id='submission-buttons' onClick={ e => resetHandler(e) }>Cancel</button>
+                    <button type='button' id='submission-buttons' onClick={ e => handleEditSubmit(e) }>SUBMIT EDIT</button>
+                    <button type='button' id='submission-buttons' onClick={ e => deleteHandler(e) }>SUBMIT DELETE</button>
+                    <button type='button' id='submission-buttons' onClick={ e => resetHandler(e) }>SUBMIT Cancel</button>
 
                 </div>
             </div>
-        </div>
+        </div >
 
 
 

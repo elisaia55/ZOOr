@@ -59,10 +59,12 @@ export const editComment = (comment) => async (dispatch) => {
 }
 
 export const destroyComment = (commentId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/comments/${commentId}`, {
+    const res = await csrfFetch(`/api/comments`, {
         method: 'DELETE',
+        body: JSON.stringify(commentId)
 
     })
+    console.log(" DELETE THUNK", commentId)
     if (res.ok) {
 
         dispatch(deleteComment(commentId))

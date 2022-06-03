@@ -20,28 +20,17 @@ const PhotoDetail = () => {
     const [editCommentForm, setEditCommentForm] = useState(false)
 
 
-    // edit Comment
-
-
-
-
-
-
-    const userId = useSelector(state => state.users)
 
     let sessionUser = useSelector(state => state.session.user);
 
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [showModal, setShowModal] = useState(false);
+
     const [comment, setComment] = useState('')
     const [errors, setErrors] = useState([])
 
     const params = useParams()
-    const { commentId } = params
-
-
 
 
 
@@ -125,7 +114,7 @@ const PhotoDetail = () => {
 
                                             <p className='comments-ul' >{ comment.comment } --- { comment.userId }</p>
                                             { sessionUser.id == comment.userId && <button type="button" onClick={ () => setEditCommentForm((!editCommentForm)) }>EDIT COMMENT</button> }
-                                            { sessionUser.id == comment.userId && editCommentForm && <CommentEditForm setEditCommentForm={ setEditCommentForm } /> }
+                                            { sessionUser.id == comment.userId && editCommentForm && <CommentEditForm setEditCommentForm={ setEditCommentForm } comment={ comment } photo={ photo } /> }
 
 
 

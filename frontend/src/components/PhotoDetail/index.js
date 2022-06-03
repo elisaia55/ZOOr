@@ -5,23 +5,22 @@ import { useHistory, useParams } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { createComment, destroyComment, getPhotoComments } from '../../store/comment';
 import { editComment } from '../../store/comment'
-import { Modal } from '../../context/Modal'
-import EditCommentModal from './EditCommentModal'
-import InlineEdit from './inLineEditTEST'
-import { getUsers } from '../../store/users'
+import CommentEditForm from './CommentEditForm'
 
-
-// import CommentForm from '../CommentForm'
 
 
 const PhotoDetail = () => {
 
     const users = Object.values(useSelector(state => state.users))
-
-
     const photoId = useParams().photoId;
     const photo = useSelector(state => state.photos)[photoId];
     const comments = Object.values(useSelector(state => state.comments))
+
+
+    const [editCommentForm, setEditCommentForm] = useState(false)
+
+
+    // edit Comment
 
 
 
@@ -42,25 +41,13 @@ const PhotoDetail = () => {
     const params = useParams()
     const { commentId } = params
 
-    console.log('USERS +============================>', userId)
 
-    // if (!sessionUser) {
-    //     alert("Please sign in to leave a comment")
-    // }
 
-    const deleteHandler = (e) => {
-        e.preventDefault();
-
-        dispatch(destroyComment(commentId))
-
-    }
 
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
-        console.log("TESTING ======>", { comment, userId, photoId })
-        // return dispatch(createComment({ comment, photoId })).then(() => setComment(''))
 
         const newComment = {
             comment,
@@ -85,9 +72,8 @@ const PhotoDetail = () => {
     }, [comment])
 
 
-
     if (!sessionUser) {
-        sessionUser = { id: 4 }
+        sessionUser = { id: 0 }
 
     }
 
@@ -130,18 +116,19 @@ const PhotoDetail = () => {
                                     placeholder='Leave a Comment Here' value={ comment }>
 
                                 </textarea>
-                                <button type='submit' id='submit-commentBtn' onClick={ (e) => handleSubmit(e) }>SUBMIT COMMENT</button>
+                                <button type='button' id='submit-commentBtn' onClick={ (e) => handleSubmit(e) }>SUBMIT COMMENT</button>
 
                                 <div id='comment-section-div'>
                                     { !comments.length && <p>No Comments Yet</p> }
                                     { (comments.length) && comments.map(comment =>
-                                        <li key={ comment.userId } className='comment-li'>
+                                        <li key={ comment.commentId } className='comment-li'>
 
-                                            <p className='comments-ul' >{ comment.comment } --- { }</p>
-                                            { sessionUser.id === comment.userId && <button onClick={ () => setShowModal(true) }>EDIT COMMENT</button> }
-                                            { sessionUser.id === comment.userId && <button onClick={ e => deleteHandler(e) }>DELETE COMMENT</button> }
-                                            <InlineEdit />
-                                            { showModal && <Modal onClose={ () => setShowModal(false) }><EditCommentModal /></Modal> }
+                                            <p className='comments-ul' >{ comment.comment } --- { comment.userId }</p>
+                                            { sessionUser.id == comment.userId && <button type="button" onClick={ () => setEditCommentForm((!editCommentForm)) }>EDIT COMMENT</button> }
+                                            { editCommentForm && <CommentEditForm setEditCommentForm={ setEditCommentForm } /> }
+
+
+
 
 
 

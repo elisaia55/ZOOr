@@ -28,9 +28,9 @@ router.get('/:photoId', asyncHandler(async (req, res) => {
     const photoId = req.params.photoId;
 
 
-    const comments = await Comment.findAll({ where: { photoId } })
-    const users = await User.findAll()
-    console.log("ENTERED THE GET ROUTE FOR COMMMENTS +++++++", comments, users)
+    const comments = await Comment.findAll({ include: { all: true } })
+
+    console.log("ENTERED THE GET ROUTE FOR COMMMENTS +++++++", comments)
     res.json(comments)
 }))
 

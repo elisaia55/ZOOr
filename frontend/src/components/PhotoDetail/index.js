@@ -125,7 +125,7 @@ const PhotoDetail = () => {
 
                                             <p className='comments-ul' >{ comment.comment } --- { comment.userId }</p>
                                             { sessionUser.id == comment.userId && <button type="button" onClick={ () => setEditCommentForm((!editCommentForm)) }>EDIT COMMENT</button> }
-                                            { editCommentForm && <CommentEditForm setEditCommentForm={ setEditCommentForm } /> }
+                                            { sessionUser.id == comment.userId && editCommentForm && <CommentEditForm setEditCommentForm={ setEditCommentForm } /> }
 
 
 

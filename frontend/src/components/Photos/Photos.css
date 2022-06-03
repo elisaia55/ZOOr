@@ -5,10 +5,35 @@
 
 .photos {
 
-  width: 100%;
-  height: 25em;
+  width: 400px;
+  height: auto;
   cursor: pointer;
+  transition: all .2s ease-in-out;
+  flex-grow: 1;
+  margin: 2px;
+  position: relative;
+  line-height: 0;
+
 }
+
+img {
+    max-height: 250px;
+    min-width: 100%;
+    object-fit: cover;
+
+    /* z-index: -1; */
+}
+
+/* .photos-container {
+    &:last-child {
+        flex-grow: unset;
+    }
+    &:nth-last-child(2) {
+        flex-grow: unset;
+    }
+}
+ */
+
 
 .photos img:hover {
     display: none;
@@ -18,22 +43,35 @@
 
     color: black;
     text-align: center;
+    display: flex;
+    align-self: center;
+    transform: translateX(750px);
 
 }
 
 .img-li {
     margin: 20px 10px;
+
+}
+
+.photos:hover {
+        -moz-box-shadow: 0 0 10px #ccc;
+      -webkit-box-shadow: 0 0 10px #ccc;
+      box-shadow: 0 0 10px #ccc;
+      transform: scale(1.1);
+
 }
 
 #photos-container {
-  display: grid;
-  flex-direction: row;
-  list-style-type:none;
-  max-width: 1600px;
-  max-height: 1000px;
-  margin: 0px 20px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    width: 100%;
+    max-width: 1600px;
+    min-width: 965px;
+    margin: 0px 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .photo-title,
@@ -54,4 +92,34 @@
 
 .location:hover {
     color: aqua;
+}
+
+#img-li .image-text-hover {
+    position:relative;
+    bottom:20px;
+    left:12px;
+    visibility:hidden;
+    transition: all .2s ease-in-out;
+}
+
+#img-li:hover .image-text-hover {
+    visibility: visible;
+    cursor: pointer;
+    font-size:12px;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+    transform: scale(1.1);
+    text-decoration:solid;
+    color: rgb(255, 255, 255);
+    font-variant-ligatures: discretionary-ligatures;
+
+
+
+}
+
+#img-li {
+    margin: 20px 10px;
+}
+
+.image-text-hover:hover {
+    cursor: pointer;
 }

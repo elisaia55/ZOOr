@@ -59,14 +59,15 @@ export const editComment = (comment) => async (dispatch) => {
 }
 
 export const destroyComment = (commentId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/comments`, {
+    const res = await csrfFetch(`/api/comments/${commentId}`, {
         method: 'DELETE',
-        body: JSON.stringify({ commentId })
+
     })
     if (res.ok) {
-        const deletedComment = await res.json()
-        dispatch(deleteComment(deletedComment))
+
+        dispatch(deleteComment(commentId))
     }
+    return res
 }
 
 const commentReducer = (state = {}, action) => {

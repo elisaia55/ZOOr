@@ -43,11 +43,14 @@ router.post(
     }),
 );
 
-router.get('/', asyncHandler(async (req, res) => {
-    const userName = req.params.userName
-    const name = await User.findOne({ where: { userName } })
-    console.log("ENTERED GET ROUTE FOR USERS ===============>", name)
-    res.json(name)
+router.get('/:photoId', asyncHandler(async (req, res) => {
+    const username = req.params.username
+
+    const users = await User.findAll({ where: { username } })
+
+    console.log("ENTERED GET ROUTE FOR USERS ==========================>", users)
+
+    res.json(users)
 }))
 
 module.exports = router;

@@ -10,7 +10,8 @@ import EditPhotoForm from "./components/EditPhoto";
 import SplashPage from "./components/SplashPage";
 import PhotoDetail from "./components/PhotoDetail";
 import Footer from "./components/Footer";
-import GoogleMaps from "./components/GoogleMaps";
+import './index.css'
+
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 
 
   return (
+
     isLoaded && (
 
       <>

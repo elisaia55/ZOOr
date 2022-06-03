@@ -4,7 +4,8 @@ const { requireAuth } = require('../../utils/auth.js');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation')
 const router = express.Router();
-const { Comment } = require('../../db/models')
+const { Comment, Photo, User } = require('../../db/models');
+
 
 
 const validateComment = [
@@ -26,8 +27,10 @@ router.post('/', validateComment, requireAuth, asyncHandler(async (req, res) => 
 router.get('/:photoId', asyncHandler(async (req, res) => {
     const photoId = req.params.photoId;
 
+
     const comments = await Comment.findAll({ where: { photoId } })
-    console.log("ENTERED THE GET ROUTE FOR COMMMENTS +++++++", comments)
+    const users = await User.findAll()
+    console.log("ENTERED THE GET ROUTE FOR COMMMENTS +++++++", comments, users)
     res.json(comments)
 }))
 
@@ -38,5 +41,13 @@ router.put('/', requireAuth, validateComment, asyncHandler(async (req, res) => {
 
     res.json(editedComment)
 }))
+
+router.delete('/', requireAuth, asyncHandler(async (req, res) => {
+    const { commentId } = req.body
+    const deleteComment = await Comment.findByPk(commentId)
+    await deleteComment.destroy()
+    res.json(commentId)
+}))
+
 
 module.exports = router;

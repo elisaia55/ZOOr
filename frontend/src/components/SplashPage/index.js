@@ -58,15 +58,16 @@ const SplashPage = () => {
                         <h2 id="splash-title">Find your inspiration.</h2>
                         <p className="splash-p-tag">Join the ZOOr community, home to tens of billions of photos and 2 million groups.</p>
                         { (!sessionUser) ? <a href="/signup">
-                            <button className="splash-mainBtn"> Start for Free</button>
+                            <button className="splash-mainBtn"> Start for Free </button>
                         </a> : <a href="/photos">
                             <button>Explore</button>
 
                         </a>
                         }
                     </div>
-                </div>
 
+                </div>
+                <a href="https://www.youtube.com/" className="owner">CREDIT</a>
             </div>
 
         </div>

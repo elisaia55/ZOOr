@@ -4,12 +4,14 @@ import photosReducer from './photos';
 import sessionReducer from './session';
 import commentReducer from './comment';
 import UsersReducer from './users';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     photos: photosReducer,
     comments: commentReducer,
-    users: UsersReducer
+    users: UsersReducer,
+    search: searchReducer
 });
 
 

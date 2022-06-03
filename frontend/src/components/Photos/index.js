@@ -20,15 +20,13 @@ export default function Photos() {
 
     return (
         <>
-            <h1 className="h1-title">Zooer Photo Gallery</h1>
+            <h1 className="h1-title">ZOOr Photo Gallery</h1>
             <div className="display-body">
                 <ul id="photos-container">
                     { photos.map(photo => (
-                        <li key={ photo.id } className='img-li'>
+                        <li key={ photo.id } id='img-li'>
                             <img className="photos" onClick={ () => history.push(`photo/${photo.id}`) } src={ photo.photoUrl }></img>
-                            {/* <li className="photo-title">{ photo.content }</li>
-                            <li className="created">{ photo.createdAt }</li>
-                            <NavLink to='/' className="location"> { photo.city }, { photo.state }  { photo.zipCode }</NavLink> */}
+                            <p className="image-text-hover">{ photo.content }, { photo.city } { photo.state }</p>
 
 
                         </li>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import CommentEditForm from '../CommentEditForm'
+import './CommentDisplay.css'
+
 
 const CommentDisplay = ({ comment, photo }) => {
 
@@ -16,14 +18,17 @@ const CommentDisplay = ({ comment, photo }) => {
 
 
         <div className='comment-form-div'>
-            { userComment && <p className='comment-user'>TAKEN BY:{ userComment.username }</p> }
-            { comment &&
-                <>
-                    <p className='comment-text'>{ comment.comment }</p>
-                </>
-            }
-            { userCurr && userComment && userCurr.id === userComment.id && <button className='edit-formBtn' onClick={ () => setEditCommentForm(!editCommentForm) }>EDIT COMMENT BUTTON</button> }
-            { editCommentForm && <CommentEditForm photo={ photo } comment={ comment } setEditCommentForm={ setEditCommentForm }></CommentEditForm> }
+            { userComment && <p className='comment-user'>   TAKEN BY:     { userComment.username }</p> }
+            <div className='comment-section-container'>
+                { comment &&
+                    <>
+                        <p className='comment-text'>{ comment.comment }</p>
+                    </>
+                }
+                { userCurr && userComment && userCurr.id === userComment.id && <button className='edit-formBtn' onClick={ () => setEditCommentForm(!editCommentForm) }>EDIT COMMENT BUTTON</button> }
+                { editCommentForm && <CommentEditForm photo={ photo } comment={ comment } setEditCommentForm={ setEditCommentForm }></CommentEditForm> }
+
+            </div>
         </div>
     )
 }

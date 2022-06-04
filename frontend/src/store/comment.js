@@ -60,6 +60,7 @@ export const editComment = comment => async dispatch => {
 
     }
 }
+
 export const createComment = comment => async dispatch => {
     const res = await csrfFetch('/api/comments', {
         method: 'POST',

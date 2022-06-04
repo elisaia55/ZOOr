@@ -13,7 +13,7 @@ const validateComment = [
         .exists({ checkFalsy: true })
         .withMessage('Please Leave a Comment')
         .isLength({ max: 12500 })
-        .withMessage('Business Description must not be more than 12,500 characters.'),
+        .withMessage('Photo Description must not be more than 12,500 characters.'),
     handleValidationErrors
 ];
 
@@ -35,10 +35,11 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 router.put('/', requireAuth, asyncHandler(async (req, res) => {
+
     const { commentId, commentNew } = req.body
-    console.log('ENTERED EDIT ROUTE========>', req.body, commentNew, commentId)
+    console.log('ENTERED EDIT ROUTE========>', req.body, commentNew, req.params.id)
     const updatingComment = await Comment.findByPk(commentId)
-    const updatedComment = await updatingComment.update(commentNew)
+    const updatedComment = await updatingComment.update(req.body)
     res.json(updatedComment)
 
 }))

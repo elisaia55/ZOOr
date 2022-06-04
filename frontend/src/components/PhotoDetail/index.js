@@ -59,7 +59,8 @@ const PhotoDetail = () => {
 
 
     return (
-        <>
+        <div className='photo-single-container'>
+
             { photo &&
                 <div id='page-container'>
                     <img id='photo-detail-img' src={ photo.photoUrl }></img>
@@ -91,7 +92,8 @@ const PhotoDetail = () => {
 
 
             }
-        </>
+
+        </div>
     )
 
 }

@@ -1,40 +1,83 @@
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import CommentEditForm from './CommentEditForm'
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { editComment, destroyComment, } from '../../store/comment';
 
-const CommentSection = ({ comment, photo }) => {
 
-    const allUsers = useSelector(state => state.users)
-    const userComment = allUsers[comment.userId]
-    const userCurr = useSelector(state => state.session.user)
-    const [editCommentForm, setEditCommentForm] = useState(false)
-
-    useEffect(() => { }, [comment])
+const CommentEditForm = ({ photo, comment, setEditCommentForm }) => {
+    const [commentNew, setCommentNew] = useState(comment.commentNew)
+    let sessionUser = useSelector(state => state.session.user)
+    const dispatch = useDispatch()
+    const [errors, setErrors] = useState([]);
 
 
 
-    // let sessionUser = useSelector(state => state.session.user);
-    // const dispatch = useDispatch()
+    const handleEditSubmit = (e) => {
+        e.preventDefault()
+
+        const newestComment = {
+            commentId: comment.id,
+            commentNew,
+            userId: sessionUser.id,
+            photoId: photo.id
+
+        }
+        console.log("PLEASE WORK PLEASSEEE", newestComment)
+
+        dispatch(editComment(newestComment))
+            .then(() => {
+                setEditCommentForm(false)
+            })
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors)
+            })
+    }
+
+    const deleteHandler = (e) => {
+        e.preventDefault()
+
+        dispatch(destroyComment(comment.id))
+            .then(() => {
+                setEditCommentForm(false)
+
+            })
+    }
 
 
+    const resetHandler = (e) => {
+        setEditCommentForm(false)
+    }
 
 
 
 
     return (
 
+        <div className='comment-form-container'>
+            <p className='comment-form-header'>EDIT COMMENT of { comment.comment } </p>
+            <form className='comment-form'>
+                { errors.length >= 0 &&
+                    <ul>
+                        { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
+                    </ul>
+                }
+                <label>Comment</label>
+                <input onChange={ (e) => setCommentNew(e.target.value) } id='new-comment-input' type='text' placeholder='New Comment Here' value={ commentNew }></input>
+                <div className='comment-button-container'>
+                    <button type='button' id='submission-buttons' onClick={ e => handleEditSubmit(e) }>COMMENT EDIT BUTTON</button>
+                    <button type='button' id='submission-buttons' onClick={ e => deleteHandler(e) }>COMMENT DELETE BUTTON</button>
+                    <button type='button' id='submission-buttons' onClick={ e => resetHandler(e) }>COMMENT RESET BUTTON</button>
 
-        <div className='comment-form-div'>
-            { userComment && <p className='comment-user'>{ userComment.username }</p> }
-            { comment &&
-                <>
-                    <p className='comment-text'>{ comment.comment }</p>
-                </>
-            }
-            { userCurr && userComment && userCurr.id === userComment.id && <button className='edit-formBtn' onClick={ () => setEditCommentForm(!editCommentForm) }>EDIT COMMENT BUTTON</button> }
-            { editCommentForm && <CommentEditForm photo={ photo } comment={ comment } setEditCommentForm={ setEditCommentForm }></CommentEditForm> }
-        </div>
+                </div>
+            </form>
+        </div >
+
+
+
+
     )
+
+
 }
 
-export default CommentSection;
+export default CommentEditForm;

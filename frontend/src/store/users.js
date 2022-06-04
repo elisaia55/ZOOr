@@ -11,7 +11,7 @@ const loadUsers = users => {
 }
 
 export const getUsers = (commentId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/${commentId}`);
+    const res = await csrfFetch(`/api/users`);
     if (res.ok) {
         const users = await res.json()
         dispatch(loadUsers(users))

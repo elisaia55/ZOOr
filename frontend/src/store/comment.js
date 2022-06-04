@@ -25,8 +25,8 @@ const loadComments = comments => {
     }
 }
 
-export const getPhotoComments = (photoId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/comments/${photoId}`)
+export const getPhotoComments = photoId => async dispatch => {
+    const res = await csrfFetch(`/api/comments`)
     if (res.ok) {
         const photoComments = await res.json()
         dispatch(loadComments(photoComments))
@@ -34,19 +34,21 @@ export const getPhotoComments = (photoId) => async (dispatch) => {
 
 }
 
-export const createComment = (comment) => async (dispatch) => {
-    const res = csrfFetch('/api/comments', {
-        method: 'POST',
-        body: JSON.stringify(comment)
+export const destroyComment = commentId => async dispatch => {
+    const res = await csrfFetch(`/api/comments`, {
+        method: 'DELETE',
+        body: JSON.stringify({ commentId })
+
     })
+
     if (res.ok) {
-        const newComment = await res.json()
-        dispatch(addComment(newComment))
-        return newComment
+        const deletedCommentId = await res.json()
+        dispatch(deleteComment(deletedCommentId))
     }
+
 }
 
-export const editComment = (comment) => async (dispatch) => {
+export const editComment = comment => async dispatch => {
     const res = await csrfFetch(`/api/comments`, {
         method: 'PUT',
         body: JSON.stringify(comment)
@@ -55,19 +57,19 @@ export const editComment = (comment) => async (dispatch) => {
         const editedComment = await res.json()
         dispatch(addComment(editedComment))
         return editComment
+
     }
 }
-
-export const destroyComment = (commentId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/comments`, {
-        method: 'DELETE',
-        body: JSON.stringify(commentId)
-
+export const createComment = comment => async dispatch => {
+    const res = await csrfFetch('/api/comments', {
+        method: 'POST',
+        body: JSON.stringify(comment)
     })
-    console.log(" DELETE THUNK", commentId)
-    if (res.ok) {
 
-        dispatch(deleteComment(commentId))
+    if (res.ok) {
+        const newComment = await res.json()
+        dispatch(addComment(newComment))
+        return newComment
     }
     return res
 }
@@ -92,4 +94,5 @@ const commentReducer = (state = {}, action) => {
 
 }
 
-export default commentReducer;
+
+export default commentReducer

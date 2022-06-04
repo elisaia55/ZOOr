@@ -11,7 +11,10 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: "Users" }
+        references: {
+          model: "Users",
+          key: 'id'
+        }
       },
       albumId: {
         type: Sequelize.INTEGER,
@@ -19,9 +22,10 @@ module.exports = {
       },
       photoUrl: {
         allowNull: false,
-        type: Sequelize.STRING(1000)
+        type: Sequelize.TEXT
       },
       content: {
+        allowNull: false,
         type: Sequelize.STRING(2000)
       },
       state: {
@@ -37,11 +41,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       lat: {
-        allowNull: false,
+
         type: Sequelize.DECIMAL(10, 8)
       },
       lng: {
-        allowNull: false,
+
         type: Sequelize.DECIMAL(11, 8)
       },
       createdAt: {

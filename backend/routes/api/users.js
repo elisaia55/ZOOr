@@ -43,13 +43,8 @@ router.post(
     }),
 );
 
-router.get('/:commentId', asyncHandler(async (req, res) => {
-    const commentId = req.params.commentId
-
-    const users = await User.findAll({ where: { commentId } })
-
-    console.log("ENTERED GET ROUTE FOR USERS ==========================")
-
+router.get('/', asyncHandler(async (req, res) => {
+    const users = await User.findAll()
     res.json(users)
 }))
 

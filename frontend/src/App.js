@@ -11,6 +11,9 @@ import SplashPage from "./components/SplashPage";
 import PhotoDetail from "./components/PhotoDetail";
 import Footer from "./components/Footer";
 import './index.css'
+import { getPhotos } from "./store/photos";
+import { getUsers } from "./store/users";
+import { getPhotoComments } from "./store/comment";
 
 
 
@@ -27,6 +30,20 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+
+  useEffect(() => {
+    dispatch(getPhotos())
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getPhotoComments())
+  }, [dispatch])
+
 
 
   return (

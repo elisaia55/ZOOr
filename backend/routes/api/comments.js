@@ -39,8 +39,12 @@ router.put('/', requireAuth, asyncHandler(async (req, res) => {
     const { commentId, commentNew } = req.body
     console.log('ENTERED EDIT ROUTE========>', req.body, commentNew, req.params.id)
     const updatingComment = await Comment.findByPk(commentId)
-    const updatedComment = await updatingComment.update(req.body)
-    res.json(updatedComment)
+    await updatingComment.update({
+        comment: commentNew,
+        commentId: commentId,
+    })
+    const newlyEditedComment = await Comment.findByPk(commentId)
+    res.json(newlyEditedComment)
 
 }))
 

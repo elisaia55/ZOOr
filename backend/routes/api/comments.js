@@ -4,36 +4,54 @@ const { requireAuth } = require('../../utils/auth.js');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation')
 const router = express.Router();
-const { Comment } = require('../../db/models')
+const { Comment, Photo, User } = require('../../db/models');
+
 
 
 const validateComment = [
     check('comment')
         .exists({ checkFalsy: true })
-        .withMessage('Please Leave a Comment'),
-    check('rating')
-        .exists({ checkFalsy: true })
-        .withMessage("Pleave Leave a Rating."),
+        .withMessage('Please Leave a Comment')
+        .isLength({ max: 12500 })
+        .withMessage('Business Description must not be more than 12,500 characters.'),
     handleValidationErrors
 ];
 
 router.post('/', validateComment, requireAuth, asyncHandler(async (req, res) => {
-    const newComment = await Comment.create(req.body)
-    return res.json(req.body)
+
+
+    const commentBuilder = await Comment.build(req.body)
+    // console.log('ENTERED ROUTE')
+    const newComment = await commentBuilder.save()
+    res.json(newComment)
 }));
 
-router.get('/:photoId', asyncHandler(async (req, res) => {
-    const photoId = req.params.photoId;
-    const comments = await Comment.findAll({ where: { photoId } })
-    res.json(comments)
+router.get('/', asyncHandler(async (req, res) => {
+    const comments = await Comment.findAll()
+    return res.json(comments)
+
+
+
 }))
 
-router.put('/', requireAuth, validateComment, asyncHandler(async (req, res) => {
-    const { commentId, comment } = req.body;
-    const updateComment = await Comment.findByPk(commentId)
-    const editedComment = await updateComment.update({ comment })
+router.put('/', requireAuth, asyncHandler(async (req, res) => {
+    const { commentId, commentNew } = req.body
+    console.log('ENTERED EDIT ROUTE========>', req.body, commentNew, commentId)
+    const updatingComment = await Comment.findByPk(commentId)
+    const updatedComment = await updatingComment.update(commentNew)
+    res.json(updatedComment)
 
-    res.json(editedComment)
 }))
+
+router.delete('/', requireAuth, asyncHandler(async (req, res) => {
+    const { commentId } = req.body;
+    const deleteComment = await Comment.findByPk(commentId)
+    await deleteComment.destroy()
+    res.json(commentId)
+
+
+
+}))
+
 
 module.exports = router;

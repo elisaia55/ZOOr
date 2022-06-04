@@ -7,7 +7,8 @@ import { getPhotos } from "../../store/photos";
 
 
 const EditPhotoForm = () => {
-
+    const photoId = useParams().photoId;
+    const photo = useSelector(state => state.photos)[photoId];
     const allPhotos = useSelector(state => state.photos)
     const editPhotoId = useParams().photoId
     const editPhoto = allPhotos[editPhotoId] || {};
@@ -51,7 +52,7 @@ const EditPhotoForm = () => {
             lng
         }
         dispatch(editPhotoThunk(editingPhoto))
-            .then(() => history.push('/'))
+            .then(() => history.push(`/photo/${photo.id}`))
             .catch(async (res) => {
                 const data = await res.json()
                 if (data && errors) setErrors(data.errors)

@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import logo from '../../images/Zooer-removebg.png'
+import logo from '../../images/ZOOr LOG FINAL.png'
+import Search from '../SearchBar/SearchBar';
+import { getPhotos } from '../../store/photos'
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
+    const photos = useSelector(state => {
+        return Object.values(state.photos)
+    })
+
+    const dispatch = useDispatch()
+
+
+    useEffect(() => {
+        dispatch(getPhotos())
+    }, [dispatch])
+
+
+
 
     let sessionLinks;
     if (sessionUser) {
@@ -29,22 +44,23 @@ function Navigation({ isLoaded }) {
         <div className='entire-container'>
 
             <div id="nav-header">
-                <ul className='nav-container'>
-                    <li id='auth-btns'>
+                <div className='nav-container'>
+                    <div id='auth-btns-nav'>
                         <NavLink id='nav-home-button' exact to="/">
 
                             <button id='home-btn'><img id='home-image-btn' src={ logo } alt="logo"></img></button>
                         </NavLink>
-                        { isLoaded && sessionLinks }
                         <NavLink to='/photos' id='photo-btn'>
-                            Photos
+                            ZOOr-tography
                         </NavLink>
+                        <Search />
                         <NavLink to='/photo/new' id='newPhoto-btn'>
-                            upload btn
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
                         </NavLink>
-                    </li>
+                        { isLoaded && sessionLinks }
+                    </div>
 
-                </ul >
+                </div >
 
 
             </div>

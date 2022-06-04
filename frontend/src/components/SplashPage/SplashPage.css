@@ -1,7 +1,3 @@
-#root{
-min-height: fit-content;
-
-}
 
 
 #splash-text-container {
@@ -13,10 +9,10 @@ min-height: fit-content;
 
     display: block;
     box-sizing: border-box;
-    margin-left: 213px;
-    margin-right: 213px;
+
     text-align: center;
     max-width: 640px;
+    justify-content: center;
 
     align-items: center;
     z-index: 0;
@@ -24,8 +20,7 @@ min-height: fit-content;
     align-content: center;
     color: white;
 
-    margin: 5px;
-    bottom: 565px;
+
 }
 
 #splash-title   {
@@ -55,21 +50,25 @@ min-height: fit-content;
 
 }
 
-.video-container{
-    margin: 1px 0;
+div.video-container{
+    min-height:2px;
+    height: 740px;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     align-items: center;
-    min-width: 1080px;
+    min-width: 100%;
     width: 100%;
-    position: relative;
+    position: absolute;
+    background-size: cover;
+    height: 80vh !important;
+
 }
 
 .splash-nav-container {
 
-  height: 850px;
+  height: 800px;
   width: 100%;
 
 }
@@ -111,6 +110,18 @@ min-height: fit-content;
 }
 
 .splash-mainBtn:hover{
-    color: rgb(139, 139, 133);
+    color: rgba(139, 139, 133, 0.705);
+    cursor: pointer;
+}
+
+.owner{
+
+    font-size: 20px;
+    color: aqua;
+    line-height:2000px;
+    z-index: 0;
+}
+
+.owner:hover {
     cursor: pointer;
 }

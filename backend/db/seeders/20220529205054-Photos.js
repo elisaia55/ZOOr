@@ -19,8 +19,7 @@ module.exports = {
         zipCode: "94607",
         lat: "37.804363",
         lng: "-122.271111",
-        createdAt: new Date(),
-        updatedAt: new Date(),
+
       },
       {
         userId: 1,
@@ -32,8 +31,6 @@ module.exports = {
         zipCode: "75001",
         lat: "32.779167",
         lng: "-96.808891",
-        createdAt: new Date(),
-        updatedAt: new Date(),
 
       },
       {
@@ -46,8 +43,7 @@ module.exports = {
         zipCode: "97005",
         lat: "45.485168",
         lng: "-122.804489",
-        createdAt: new Date(),
-        updatedAt: new Date(),
+
 
       }
     ], {});
@@ -59,7 +55,7 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+      */
+    return queryInterface.bulkDelete('Photos', null, {});
   }
 };

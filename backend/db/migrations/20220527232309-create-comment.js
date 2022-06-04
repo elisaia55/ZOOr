@@ -11,22 +11,28 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: "Users" }
+        onDelete: 'CASCADE',
+        hooks: 'true',
+        references: {
+          model: "Users",
+          key: 'id'
+        }
 
       },
       photoId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: "Photos" }
+        onDelete: 'CASCADE',
+        hooks: 'true',
+        references: {
+          model: "Photos",
+          key: 'id'
+        }
 
       },
       comment: {
         allowNull: false,
-        type: Sequelize.STRING(6000)
-      },
-      rating: {
-
-        type: Sequelize.INTEGER
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

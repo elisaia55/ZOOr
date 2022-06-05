@@ -21,8 +21,8 @@ router.post('/', validateComment, requireAuth, asyncHandler(async (req, res) => 
 
 
     const commentBuilder = await Comment.build(req.body)
-    // console.log('ENTERED ROUTE')
     const newComment = await commentBuilder.save()
+
     res.json(newComment)
 }));
 
@@ -37,7 +37,7 @@ router.get('/', asyncHandler(async (req, res) => {
 router.put('/', requireAuth, asyncHandler(async (req, res) => {
 
     const { commentId, commentNew } = req.body
-    console.log('ENTERED EDIT ROUTE========>', req.body, commentNew, req.params.id)
+
     const updatingComment = await Comment.findByPk(commentId)
     await updatingComment.update({
         comment: commentNew,

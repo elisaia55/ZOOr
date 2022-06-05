@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/elisaia55/Project#readme",
   "dependencies": {
-    "react-google-recaptcha": "^2.1.0"
+    "react-google-recaptcha": "^2.1.0",
+    "react-map-gl": "^7.0.15"
   }
 }

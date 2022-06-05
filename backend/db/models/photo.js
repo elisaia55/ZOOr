@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     Photo.hasMany(models.Comment, { foreignKey: "userId", onDelete: 'CASCADE', hooks: true });
     Photo.belongsTo(models.User, { foreignKey: "userId" });
     Photo.belongsTo(models.Album, { foreignKey: "albumId" })
+    Photo.hasMany(models.Like, { foreignKey: 'photoId', onDelete: 'CASCADE', hooks: true })
 
 
   };

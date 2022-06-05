@@ -5,6 +5,7 @@ const usersRouter = require('./users.js');
 const photosRouter = require('./photos.js')
 const commentsRouter = require('./comments.js')
 const searchRouter = require('./search.js')
+const likesRouter = require('./likes')
 
 router.use('/session', sessionRouter);
 
@@ -15,6 +16,8 @@ router.use('/photos', photosRouter)
 router.use('/comments', commentsRouter)
 
 router.use("/search", searchRouter);
+
+router.use('/likes', likesRouter)
 
 
 module.exports = router;

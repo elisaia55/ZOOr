@@ -51,7 +51,7 @@ function Navigation({ isLoaded }) {
                             <button id='home-btn'><img id='home-image-btn' src={ logo } alt="logo"></img></button>
                         </NavLink>
                         <NavLink to='/photos' id='photo-btn'>
-                            ZOOr-tography
+                            Explore
                         </NavLink>
                         <Search />
                         <NavLink to='/photo/new' id='newPhoto-btn'>

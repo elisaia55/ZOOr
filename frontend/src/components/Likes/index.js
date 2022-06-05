@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import './Likes.css'
-import { addLikeThunk, getLikeThunk, deleteLikeThunk } from '../../store/likes'
+import { addLikeThunk, getLikeThunk, deleteLikeThunk } from '../../store/like'
 
 
 
@@ -11,15 +11,15 @@ import { famonke } from '@fortawesome/free-solid-svg-icons'
 
 const Likes = ({ photoId }) => {
     let sessionUser = useSelector(state => state.session.user);
-    let userId
-    if (sessionUser) {
-        userId = sessionUser.id
-    }
 
     const dispatch = useDispatch()
     const [liked, setLiked] = useState(false)
     const [totalLikes, setTotalLikes] = useState(0)
 
+    let userId;
+    if (sessionUser) {
+        userId = sessionUser.id
+    }
     useEffect(() => {
         const getLikes = async () => {
             const likes = await dispatch(getLikeThunk(photoId))
@@ -28,17 +28,17 @@ const Likes = ({ photoId }) => {
             const totalLikes = likes.length
             setTotalLikes(totalLikes)
         }
-        getLikes()
-    }, [dispatch, setTotalLikes, photoId, userId])
+        // getLikes()
+    }, [dispatch, setTotalLikes, userId, photoId])
 
     const handleLike = async () => {
         if (liked) {
-            const like = { photoId, userId }
+            const like = { userId, photoId }
             dispatch(deleteLikeThunk(like))
             setTotalLikes(totalLikes - 1)
         } else {
             setTotalLikes(totalLikes + 1)
-            const like = { photoId, userId }
+            const like = { userId, photoId }
             dispatch(addLikeThunk(like))
         }
         setLiked(!liked)

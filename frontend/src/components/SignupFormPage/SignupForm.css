@@ -4,12 +4,20 @@ max-height: 100%;
 }
 
 .content-container {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: red;
-    max-width: 300px;
-    max-height: 600px;
+    align-items: center;
+    text-align:justify;
+    background-color:rgba(0, 0, 0, 0.815);
+
+    max-width: 350px;
+    height: 580px;
+    margin-top: 40px;
+    border-radius: 4px;
+
+
 
 }
 
@@ -22,6 +30,122 @@ max-height: 100%;
 .signup-logo {
     height: 130px;
     width: 510px;
-    max-width: fit-content;
-    max-height: fit-content;
+    max-width: max-content;
+    max-height: max-content;
+
+}
+
+.signup-page-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    background-image: url('../../images/SIGNUPBACKGROUND.jpg');
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+
+}
+
+.signup-input-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 300px;
+    margin-bottom: 20px;
+
+
+}
+
+.signup-inputFields {
+    width: 300px;
+    height: 35px;
+    border-radius: 4px;
+    margin-bottom: 9px;
+    background-color: transparent;
+    border: 1px rgb(255, 255, 255) solid;
+    color: white;
+    text-indent: 6px;
+
+}
+
+.signup-inputFields:focus {
+    background-color: rgba(31, 28, 28, 0.459);
+}
+
+.signup-submit-btn {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #fff;
+    background: #2c8524;
+    line-height: 1.15;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.signup-submit-btn:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 2px #5f6162;
+    color: #b1b1b1;
+
+}
+
+.footer-signup-container {
+    display: flex;
+
+
+    height: 140px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.signup-logo {
+    height: 290px;
+    width:440px;
+    color: #000;
+
+}
+
+.sign-up-header {
+    display: flex;
+    font-size: 20px;
+
+
+}
+
+.footer-text {
+    font-size: 12px;
+    margin-bottom: 13px;
+    color: white;
+}
+
+::placeholder {
+    color: rgb(255, 255, 255);
+    margin-right: 3px;
+    text-indent: 6px;
+}
+
+.footer-hr {
+    width: 320px;
+    margin-bottom: 2px;
+}
+
+.bottom-text-signup {
+    color: white;
+    font-size: 10px;
+    height: 30px;
+}
+
+.in-text-link {
+    color:#838586;
 }

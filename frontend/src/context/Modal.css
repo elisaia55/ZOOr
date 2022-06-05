@@ -15,34 +15,121 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url('../images/LOGIN\ BACKGROUND\ FINAL.jpg');
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    filter: blur(2.5px);
+
   }
 
   #modal-content {
     position: absolute;
     display: flex;
     border-radius: .5px;
-    background-color: rgb(255, 255, 255);
-    height: 300px;
-    width: 300px;
+    background-color:rgba(0, 0, 0, 0.356);
+    height: 660px;
+    max-width: 385px;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     border: 1px solid black;
+    border-radius: 4px;
+    margin-top: 124px;
   }
 
   #modal-form {
     display:flex;
     flex-direction: column;
     align-items: center;
+    text-align: justify;
+    height: 100vh;
+
+
+
   }
 
-  .login-btn{
-    height: 30px;
-    width:177px;
+  #login-form-btns{
+    height: 40px;
+    width:200px;
     top: 10px;
   }
 
   #login-container {
     right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+
   }
+
+
+  .header-login-logo {
+    height: 350px;
+    width: 510px;
+    max-width: fit-content;
+    max-height: fit-content;
+  }
+
+  .login-input-fields {
+    height: 35px;
+    width: 300px;
+    color: black;
+    background-color: transparent;
+  }
+
+  #demo-btn {
+    width: 200px;
+    height: 40px;
+    margin-top: 15px;
+  }
+
+  .login-btns-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 22px;
+
+  }
+
+.login-input-fields3 {
+  margin-top:10px;
+  height:40px;
+  width: 300px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.login-input-fields {
+  margin-top:10px;
+  height:40px;
+  width: 300px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.login-form-btns {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+
+  border-radius: 3px;
+  border: 0;
+  color: #fff;
+  background: #000000;
+  font-size: 13px;
+  font-weight: bold;
+
+}
+
+.login-form-btns:hover {
+  transition: all .1s ease;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 2px #5f6162;
+  color: #b1b1b1;
+
+}

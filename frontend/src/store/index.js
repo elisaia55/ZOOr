@@ -5,13 +5,15 @@ import sessionReducer from './session';
 import commentReducer from './comment';
 import UsersReducer from './users';
 import searchReducer from './search';
+import likesReducer from './like';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     photos: photosReducer,
     comments: commentReducer,
     users: UsersReducer,
-    search: searchReducer
+    search: searchReducer,
+    likes: likesReducer
 });
 
 

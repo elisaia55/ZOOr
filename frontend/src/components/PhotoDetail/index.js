@@ -76,7 +76,7 @@ const PhotoDetail = () => {
                         <h1 className='photo-detail-title'>"{ photo.content }"</h1>
                         <p className='photo-detail-date'>Taken on { photo.createdAt }</p>
                         <p><NavLink to='/' className="photo-detail-location"> { photo.city }, { photo.state } { photo.zipCode }</NavLink></p>
-                        <Likes />
+                        <Likes photoId={ photoId } />
                         { sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ () => editHandler(photo) }>EDIT PHOTO DETAILS</button> }
                     </div>
 
@@ -90,7 +90,7 @@ const PhotoDetail = () => {
 
                         <h3 id='comments-header'></h3>
                         { (!commentsArray.length) && <p>No Comments...</p> }
-                        { commentsArray && commentsArray.length && commentsArray.reverse().map(comment => <CommentDisplay key={ comment.id } photo={ photo } comment={ comment } />) }
+                        { commentsArray && commentsArray.length && [...commentsArray].reverse().map(comment => <CommentDisplay key={ comment.id } photo={ photo } comment={ comment } />) }
 
 
                     </div>

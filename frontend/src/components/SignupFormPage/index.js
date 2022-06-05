@@ -43,57 +43,70 @@ function SignupFormPage() {
             <div className="signup-page-container">
                 <div className="content-container">
 
+                    <p className="sign-up-header"></p>
                     <img className="signup-logo" src={ logo }></img>
-                    <p className="sign-up-header">Sign up for ZOOr</p>
-                    <ReCAPTCHA sitekey="6Lc350QgAAAAAHOQ6-O2tDuezdnqv0cC_x-qzrNQ"
-                        onChange={ onCaptchaChange } />
+
+
+
 
 
                     <form onSubmit={ handleSubmit }>
                         <ul>
                             { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
                         </ul>
-                        <label>
-                            Email
-                            <input
-                                type="text"
-                                value={ email }
-                                onChange={ (e) => setEmail(e.target.value) }
-                                required
-                            />
-                        </label>
-                        <label>
-                            Username
-                            <input
-                                type="text"
-                                value={ username }
-                                onChange={ (e) => setUsername(e.target.value) }
-                                required
-                            />
-                        </label>
-                        <label>
-                            Password
-                            <input
-                                type="password"
-                                value={ password }
-                                onChange={ (e) => setPassword(e.target.value) }
-                                required
-                            />
-                        </label>
-                        <label>
-                            Confirm Password
-                            <input
-                                type="password"
-                                value={ confirmPassword }
-                                onChange={ (e) => setConfirmPassword(e.target.value) }
-                                required
-                            />
-                        </label>
-                        <button type="submit">Sign Up</button>
+                        <div className="signup-input-container">
+
+
+                            <label>
+
+                                <input className="signup-inputFields"
+                                    type="text"
+                                    placeholder="Email"
+                                    value={ email }
+                                    onChange={ (e) => setEmail(e.target.value) }
+                                    required
+                                />
+                            </label>
+                            <label>
+
+                                <input className="signup-inputFields"
+                                    type="text"
+                                    placeholder="Username"
+                                    value={ username }
+                                    onChange={ (e) => setUsername(e.target.value) }
+                                    required
+                                />
+                            </label>
+                            <label>
+
+                                <input className="signup-inputFields"
+                                    type="password"
+                                    placeholder="Password"
+                                    value={ password }
+                                    onChange={ (e) => setPassword(e.target.value) }
+                                    required
+                                />
+                            </label>
+                            <label>
+
+                                <input className="signup-inputFields"
+                                    type="password"
+                                    placeholder="Confirm Password"
+                                    value={ confirmPassword }
+                                    onChange={ (e) => setConfirmPassword(e.target.value) }
+                                    required
+                                />
+                            </label>
+                            <button className="signup-submit-btn" type="submit">Sign Up</button>
+                        </div>
                     </form>
-                    <p className="footer-text">By signing up, you agree with ZOOr's Terms of Services and Privacy Policy.</p>
-                    <div className="log-in-redirect-text">
-                        <p> Already a ZOOr member? <a className="in-text-link">Log in here</a> </p>
+                    <div className="footer-signup-container">
+                        <p className="footer-text">By signing up, you agree with ZOOr's Terms of Services and Privacy Policy.</p>
+                        <div className="log-in-redirect-text">
+                            <hr className="footer-hr"></hr>
+                            <p className="bottom-text-signup"> Already a ZOOr member? <a className="in-text-link">Log in here</a> </p>
+
+                        </div>
 
                     </div>
                 </div>

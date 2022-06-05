@@ -1,15 +1,20 @@
-#login-container {
+/* #login-container {
     display: flex;
-    position: relative;
-    bottom: 20px;
-    width: 150px;
-    height: 100px;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    text-align:justify;
+    background-color:rgba(0, 0, 0, 0.575);
+
+    max-width: 350px;
+    height: 580px;
+    margin-top: 40px;
+    border-radius: 4px;
+
 
 }
 
 #modal-background {
-    filter: blur(200px) contrast(2%) brightness(.50)
 
-}
+
+} */

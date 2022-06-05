@@ -14,7 +14,7 @@ import './index.css'
 import { getPhotos } from "./store/photos";
 import { getUsers } from "./store/users";
 import { getPhotoComments } from "./store/comment";
-import GeoMap from "./components/GeoMap";
+
 
 
 

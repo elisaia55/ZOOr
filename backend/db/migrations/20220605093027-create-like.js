@@ -19,7 +19,7 @@ module.exports = {
         }
       },
       photoId: {
-        allowNull: false,
+
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         hooks: 'true',

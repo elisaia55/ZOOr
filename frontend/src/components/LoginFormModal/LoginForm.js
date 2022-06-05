@@ -46,7 +46,7 @@ function LoginForm() {
         <form onSubmit={ handleSubmit } id="modal-form">
             <ul>
                 { errors.map((error, idx) => (
-                    <li key={ idx }>{ error }</li>
+                    <li className="errors" key={ idx }>{ error }</li>
                 )) }
             </ul>
             <div id="login-container">
@@ -74,7 +74,7 @@ function LoginForm() {
                 <div className="login-btns-container">
 
                     <button type='submit' className="login-form-btns" id="login-form-btns">Log In</button>
-                    <button type='submit' className="login-form-btns" onChange={ (e) => handleDemoSubmit(e) } id="demo-btn">Demo User</button>
+                    <button type='submit' className="login-form-btns" onClick={ (e) => handleDemoSubmit(e) } id="demo-btn">Demo User</button>
                 </div>
             </div>
         </form>

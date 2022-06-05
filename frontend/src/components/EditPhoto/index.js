@@ -67,75 +67,95 @@ const EditPhotoForm = () => {
 
     return (
         <>
-            <form id='edit-photo-form' onSubmit={ e => handleOnSubmit(e) }>
+            <div className='edit-photoPage-container'>
 
-                <ul>
-                    { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
-                </ul>
-                <label>Title:</label>
-                <input
-                    name='title'
-                    value={ content }
-                    onChange={ e => setContent(e.target.value) }
-                    type="text"
-                    placeholder="Title your photo"
-                />
-                <label>Picture URL:</label>
-                <input
-                    name="photoUrl"
-                    type='text'
-                    value={ photoUrl }
-                    onChange={ e => setPhotoUrl(e.target.value) }
-                    placeholder='Image Url'
-                />
-                <label>State:</label>
-                <input
-                    name="state"
-                    type='text'
-                    value={ state }
-                    onChange={ e => setState(e.target.value) }
-                    placeholder='State of Photo'
-                />
-                <label>City:</label>
-                <input
-                    name="city"
-                    type='text'
-                    value={ city }
-                    onChange={ e => setCity(e.target.value) }
-                    placeholder='City of Photo'
-                />
-                <label>ZipCode:</label>
-                <input
-                    name="zipcode"
-                    type='text'
-                    value={ zipCode }
-                    onChange={ e => setZipcode(e.target.value) }
-                    placeholder='Photo Zipcode'
-                />
-                <label>Latitude:</label>
-                <input
-                    name="latitude"
-                    type='text'
-                    value={ lat }
-                    onChange={ e => setLat(e.target.value) }
-                    placeholder='Photo Latitude'
-                />
-                <label>Longitude:</label>
-                <input
-                    name="longitude"
-                    type='text'
-                    value={ lng }
-                    onChange={ e => setLng(e.target.value) }
-                    placeholder='Photo Longitude'
-                />
-                <div className='edit-btns'>
-                    <button id="editPhoto-btn" type="submit">Submit</button>
+                <form id='edit-photo-form' onSubmit={ e => handleOnSubmit(e) }>
 
-                    <button className='photo-detail-deleteBtn' onClick={ (e) => deleteHandler(e, editPhoto) }>DELETE ICON</button>
+                    <ul>
+                        { errors.map((error, idx) => <li className='errors' key={ idx }>{ error }</li>) }
+                    </ul>
+                    <div className='photo-form-edit-container'>
 
-                </div>
 
-            </form>
+                        <label className='edit-photo-labels'>Title:</label>
+                        < input className="edit-photo-inputs"
+                            name='title'
+                            value={ content }
+                            onChange={ e => setContent(e.target.value) }
+                            type="text"
+                            placeholder="Title your photo"
+                        />
+                        <label className='edit-photo-labels'>Picture URL:</label>
+                        < input className="edit-photo-inputs"
+                            name="photoUrl"
+                            type='text'
+                            value={ photoUrl }
+                            onChange={ e => setPhotoUrl(e.target.value) }
+                            placeholder='Image Url'
+                        />
+                        <label className='edit-photo-labels'>State:</label>
+                        < input className="edit-photo-inputs"
+                            name="state"
+                            type='text'
+                            value={ state }
+                            onChange={ e => setState(e.target.value) }
+                            placeholder='State of Photo'
+                        />
+                        <label className='edit-photo-labels'>City:</label>
+                        < input className="edit-photo-inputs"
+                            name="city"
+                            type='text'
+                            value={ city }
+                            onChange={ e => setCity(e.target.value) }
+                            placeholder='City of Photo'
+                        />
+                        <label className='edit-photo-labels'>ZipCode:</label>
+                        < input className="edit-photo-inputs"
+                            name="zipcode"
+                            type='text'
+                            value={ zipCode }
+                            onChange={ e => setZipcode(e.target.value) }
+                            placeholder='Photo Zipcode'
+                        />
+                        <label className='edit-photo-labels'>Latitude:</label>
+                        < input className="edit-photo-inputs"
+                            name="latitude"
+                            type='text'
+                            value={ lat }
+                            onChange={ e => setLat(e.target.value) }
+                            placeholder='Photo Latitude'
+                        />
+                        <label className='edit-photo-labels'>Longitude:</label>
+                        < input className="edit-photo-inputs"
+                            name="longitude"
+                            type='text'
+                            value={ lng }
+                            onChange={ e => setLng(e.target.value) }
+                            placeholder='Photo Longitude'
+                        />
+                        <div className='edit-btns'>
+                            <button className='photo-detail-btns' id="editPhoto-btn" type="submit">Submit</button>
+
+                            <button className='photo-detail-btns' onClick={ (e) => deleteHandler(e, editPhoto) }>Delete Photo</button>
+
+                        </div>
+                        <div className='editing-photo-details'>
+                            {/* <p>{ photo.content }</p>
+                            <p>{ photo.state }</p>
+                            <p>{ photo.city }</p> */}
+
+                        </div>
+
+                        <div className='editing-photo-display'>
+                            <img className='editing-img-display' src={ photo.photoUrl } ></img>
+
+                        </div>
+                        <div className='extra'>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
 
         </>
     )

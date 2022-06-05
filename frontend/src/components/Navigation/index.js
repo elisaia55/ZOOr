@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import logo from '../../images/ZOOr LOG FINAL.png'
+import logo from '../../images/ZOOr.png'
 import Search from '../SearchBar/SearchBar';
 import { getPhotos } from '../../store/photos'
 
@@ -55,7 +55,7 @@ function Navigation({ isLoaded }) {
                         </NavLink>
                         <Search />
                         <NavLink to='/photo/new' id='newPhoto-btn'>
-                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <i className="fa-solid fa-cloud-arrow-up"></i>
                         </NavLink>
                         { isLoaded && sessionLinks }
                     </div>

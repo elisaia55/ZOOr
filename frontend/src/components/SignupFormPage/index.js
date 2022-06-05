@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css'
-import logo from '../../images/ZOOr LOG FINAL.png'
-import ReCAPTCHA from "react-google-recaptcha"
+import logo from '../../images/ZOOr.png'
+
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -52,7 +52,7 @@ function SignupFormPage() {
 
                     <form onSubmit={ handleSubmit }>
                         <ul>
-                            { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
+                            { errors.map((error, idx) => <li className="errors" key={ idx }>{ error }</li>) }
                         </ul>
                         <div className="signup-input-container">
 
@@ -103,8 +103,8 @@ function SignupFormPage() {
                     <div className="footer-signup-container">
                         <p className="footer-text">By signing up, you agree with ZOOr's Terms of Services and Privacy Policy.</p>
                         <div className="log-in-redirect-text">
-                            <hr className="footer-hr"></hr>
-                            <p className="bottom-text-signup"> Already a ZOOr member? <a className="in-text-link">Log in here</a> </p>
+
+
 
                         </div>
 

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import './Photos.css'
 import { NavLink } from "react-router-dom";
 import { useHistory, } from "react-router-dom";
-import Likes from '../Likes'
+
 
 
 
@@ -27,7 +27,7 @@ export default function Photos() {
                     { photos.map(photo => (
                         <li key={ photo.id } id='img-li'>
                             <img className="photos" onClick={ () => history.push(`photo/${photo.id}`) } src={ photo.photoUrl }></img>
-                            <p className="image-text-hover">{ photo.content }, { photo.city } { photo.state } <Likes /> </p>
+                            <p className="image-text-hover">{ photo.content }, { photo.city } { photo.state }  </p>
 
 
                         </li>

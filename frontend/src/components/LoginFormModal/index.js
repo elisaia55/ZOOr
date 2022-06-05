@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm';
 import './LoginForm.css'
-import logo from '../../images/ZOOr LOG FINAL.png'
+import logo from '../../images/ZOOr.png'
 
 function LoginFormModal() {
     const [showModal, setShowModal] = useState(false);

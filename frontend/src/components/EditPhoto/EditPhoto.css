@@ -1,0 +1,99 @@
+
+.edit-photoPage-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+}
+
+.photoEdit-form-container {
+    display: flex;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.edit-photo-labels {
+    margin-top: 10px;
+    display: flex;
+    width: 550px;
+    margin-left: 650px;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+
+.photo-detail-btns {
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+
+    border: 0;
+    color: #fff;
+    background: #000000;
+    line-height: 1.15;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+
+    margin-left: 820px;
+}
+
+ .edit-photo-inputs {
+    width: 550px;
+    height: 25px;
+    margin-left: 650px;
+
+}
+
+.edit-photo-inputs:hover {
+    background-color: rgba(175, 175, 175, 0.651);
+}
+
+#edit-photo-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.edit-photoPage-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "photo-form-edit-container photo-form-edit-container photo-form-edit-container editing-photo-display editing-photo-display editing-photo-display"
+      "photo-form-edit-container photo-form-edit-container photo-form-edit-container editing-photo-display editing-photo-display editing-photo-display"
+      "photo-form-edit-container photo-form-edit-container photo-form-edit-container editing-photo-details editing-photo-details editing-photo-details"
+      "photo-form-edit-container photo-form-edit-container photo-form-edit-container editing-photo-details editing-photo-details editing-photo-details"
+      "photo-form-edit-container photo-form-edit-container photo-form-edit-container extra extra extra";
+  }
+  .photo-form-edit-container { grid-area: photo-form-edit-container; }
+  .editing-photo-display { grid-area: editing-photo-display; }
+  .editing-photo-details { grid-area: editing-photo-details; }
+  .extra { grid-area: extra; }
+
+
+.editing-photo-details {
+    margin-left: 500px;
+    display: block;
+}
+
+.editing-img-display {
+    margin-left: 680px;
+    max-width: 35vw;
+    max-height: 35vh;
+
+
+}

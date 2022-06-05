@@ -60,7 +60,7 @@ const CommentEditForm = ({ photo, comment, setEditCommentForm }) => {
             <form className='comment-form'>
                 { errors.length >= 0 &&
                     <ul>
-                        { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
+                        { errors.map((error, idx) => <li className='errors' key={ idx }>{ error }</li>) }
                     </ul>
                 }
 

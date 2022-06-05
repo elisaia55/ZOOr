@@ -13,7 +13,8 @@
 }
 
 .nav-container {
-    height: 58px;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.808);
 
 }
 
@@ -46,14 +47,7 @@ display:grid;
 align-items: center;
 width: 100%;
 max-height: 45px;
-
-/* margin: 30px 60px; */
-/* margin-right: 30px; */
 background-color: transparent;
-
-
-
-
 
 }
 
@@ -76,4 +70,51 @@ background-color: transparent;
 #login-splash-btn {
     color: white;
     margin-right: 15px;
+}
+
+
+#login-splash-btn:hover {
+    color: rgba(255, 255, 255, 0.541);
+    cursor: pointer;
+
+}
+
+.fa-user-circle {
+    height: 30px;
+    width: 30px;
+
+}
+
+.profile-btns {
+    background-color: transparent;
+    border: none;
+}
+
+.signup-button {
+    height: 32px;
+    /* line-height: 64px; */
+   width: 75px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+
+
+    border-image-repeat: stretch;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: center;
+
+}
+
+.signup-button:hover {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: rgb(202, 202, 202);
+}
+
+.fa-cloud-arrow-up:hover {
+color: rgba(250, 237, 218, 0.801);
+
 }

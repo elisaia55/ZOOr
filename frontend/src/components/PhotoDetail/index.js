@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { getPhotoComments } from '../../store/comment';
-
 import Likes from '../Likes'
 import CommentForm from '../CommentForm'
 import CommentDisplay from '../CommentDisplay'
 import { getUsers } from '../../store/users'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faComment } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare, } from '@fortawesome/free-solid-svg-icons'
+
 
 const PhotoDetail = () => {
 
@@ -69,15 +69,15 @@ const PhotoDetail = () => {
 
                     <div className='displayed-photo'>
                         <img id='photo-detail-img' src={ photo.photoUrl }></img>
+                        { sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ () => editHandler(photo) }><FontAwesomeIcon icon={ faPenToSquare } /></button> }
                     </div>
 
 
                     <div className='photo-details'>
-                        <h1 className='photo-detail-title'>"{ photo.content }"</h1>
+                        <h1 className='photo-detail-title'> { photo.content } </h1>
                         <p className='photo-detail-date'>Taken on { photo.createdAt }</p>
                         <p><NavLink to='/' className="photo-detail-location"> { photo.city }, { photo.state } { photo.zipCode }</NavLink></p>
                         <Likes photoId={ photoId } />
-                        { sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ () => editHandler(photo) }>EDIT PHOTO DETAILS</button> }
                     </div>
 
                     <div className='add-comment-form'>

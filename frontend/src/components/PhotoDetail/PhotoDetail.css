@@ -10,6 +10,7 @@
       ". photo-details comment-section ."
       ". add-comment-form comment-section ."
       ". add-comment-form comment-section .";
+
   }
   .displayed-photo { grid-area: displayed-photo; }
   .add-comment-form { grid-area: add-comment-form; }
@@ -18,12 +19,13 @@
 
 
 .single-photo-container{
-    background-color: rgba(255, 255, 255, 0.385);
+    background-color: rgba(173, 169, 169, 0.884);
 }
 
 #photo-detail-img{
     width: 950px;
     height: 600px;
+    margin-top: 30px;
 
 }
 
@@ -32,7 +34,7 @@
     place-items: center;
     padding-top:15px ;
     padding-bottom:15px ;
-    background-color:#5f6162
+    background-color:#ffffff00
 }
 
 .photo-details {
@@ -186,9 +188,24 @@ textarea {
 }
 
 .edit-formBtn {
-  color:white
+    color:rgb(173, 169, 169);
+
 }
 
+.photo-detail-editBtn {
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    display:flex;
+    max-width: 100%;
+    margin-top: 10px;
+    margin-left: 926px;
+}
+
+.photo-detail-editBtn:hover {
+    color: rgb(255, 253, 247);
+    cursor: pointer;
+}
 
 
 

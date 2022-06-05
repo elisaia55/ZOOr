@@ -54,7 +54,7 @@ const NewPhotoForm = () => {
         <>
             <form id='newPhoto-form' onSubmit={ e => handleOnSubmit(e) }>
                 <ul>
-                    { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
+                    { errors.map((error, idx) => <li className="errors" key={ idx }>{ error }</li>) }
                 </ul>
                 <label>Title:</label>
                 <input

@@ -18,3 +18,10 @@
     box-sizing: border-box;
 
 }
+
+.errors {
+    color: red;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 13px;
+}

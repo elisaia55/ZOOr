@@ -1,0 +1,21 @@
+.button-unliked {
+    border: none;
+    background-color: transparent;
+
+    font-size: 10px;
+}
+
+.fa-star:hover {
+
+    color: rgb(255, 255, 0);
+    cursor: pointer;
+}
+
+.fa-star {
+    font-size: 13px;
+}
+
+.fa-solid + . {
+    color: rgb(255, 0, 0);
+
+}

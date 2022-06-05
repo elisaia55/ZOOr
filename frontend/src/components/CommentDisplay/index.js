@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import CommentEditForm from '../CommentEditForm'
 import './CommentDisplay.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencil } from '@fortawesome/free-solid-svg-icons'
 
 
 const CommentDisplay = ({ comment, photo }) => {
@@ -18,14 +20,14 @@ const CommentDisplay = ({ comment, photo }) => {
 
 
         <div className='comment-form-div'>
-            { userComment && <p className='comment-user'>   TAKEN BY:     { userComment.username }</p> }
+            { userComment && <p className='comment-user'> { userComment.username }:</p> }
             <div className='comment-section-container'>
                 { comment &&
                     <>
                         <p className='comment-text'>{ comment.comment }</p>
                     </>
                 }
-                { userCurr && userComment && userCurr.id === userComment.id && <button className='edit-formBtn' onClick={ () => setEditCommentForm(!editCommentForm) }>EDIT COMMENT BUTTON</button> }
+                { userCurr && userComment && userCurr.id === userComment.id && <button className='edit-formBtn' onClick={ () => setEditCommentForm(!editCommentForm) }><FontAwesomeIcon icon={ faPencil } /></button> }
                 { editCommentForm && <CommentEditForm photo={ photo } comment={ comment } setEditCommentForm={ setEditCommentForm }></CommentEditForm> }
 
             </div>

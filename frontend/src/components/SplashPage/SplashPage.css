@@ -1,81 +1,67 @@
 
 
 #splash-text-container {
-    width: fit-content;
-    height:fit-content;
 
-    z-index: 10;
-    position: absolute;
 
-    display: block;
-    box-sizing: border-box;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
 
-    text-align: center;
-    max-width: 640px;
-    justify-content: center;
 
-    align-items: center;
-    z-index: 0;
-
-    align-content: center;
-    color: white;
 
 
 }
 
 #splash-title   {
     font-size: 55px;
-    top: 90px;
+
     font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
 
 }
 
-.splash-p-tag {
-    font-size: 25px;
-    display: block;
-    font-size: 26px;
-    font-weight: 500;
-    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
-
-}
 
 
 #video-bg {
-    opacity: 1;
-    transition: .4s .2s;
-    z-index: -1;
-    width: 100%;
-    min-width: 1080px;
-
+z-index: -1;
 
 }
 
-div.video-container{
-    min-height:2px;
-    height: 740px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    align-items: center;
-    min-width: 100%;
-    width: 100%;
-    position: absolute;
-    background-size: cover;
-    height: 80vh !important;
+.video {
+    width: 100vw;
 
+    position: absolute;
+    overflow: hidden;
+}
+
+.video-container{
+max-width: 100%;
+overflow-x: hidden;
+display: flex;
+justify-content: center;
+z-index: -1;
+position: absolute;
+top:0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
 }
 
 .splash-nav-container {
 
-  height: 800px;
-  width: 100%;
+height: 100%;
+width: 100%;
+bottom: 0;
+top: 0;
+right: 0;
 
 }
 
 .splash-mainBtn {
     height: 64px;
-    line-height: 64px;
+    /* line-height: 64px; */
     min-width: 200px;
     border: none;
     border-radius: 3px;
@@ -91,37 +77,54 @@ div.video-container{
     border-image-repeat: stretch;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    box-sizing: border-box;
-    display: inline-block;
-    padding-bottom: 0px;
-    padding-left: 20px;
-    padding-right:20px;
-    padding-top: 0px;
     text-align: center;
-    text-decoration-thickness: auto;
-    transition-delay: 0s;
-    transition-duration: 0.15s;
-    transition-property: color;
-    transition-timing-function: ease-in-out;
-    vertical-align: top;
-
-
+    margin-top: 50px;
 
 }
 
 .splash-mainBtn:hover{
     color: rgba(139, 139, 133, 0.705);
     cursor: pointer;
+    box-shadow: rgba(139, 139, 133, 0.705);
+}
+
+
+
+.owner:hover {
+    cursor: pointer;
+    color: rgba(199, 195, 195, 0.63);
+}
+
+.splash-p-tag {
+    font-size: 30px;
+    color:white;
+    font-weight: bold;
+    margin-top: 40px;
+
+
+}
+
+
+
+.text-description-container {
+    width: 770px
+
+
+}
+
+#splash-title {
+    font-size: 60px;
+    color: white;
+    overflow-wrap: break-word;
 }
 
 .owner{
 
-    font-size: 20px;
-    color: aqua;
-    line-height:2000px;
-    z-index: 0;
-}
+    color: white;
+  position: absolute;
+  bottom: 110px;
+  right: 850px;
+  text-decoration: none;
+  font-style: italic;
 
-.owner:hover {
-    cursor: pointer;
 }

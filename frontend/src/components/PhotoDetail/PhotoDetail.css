@@ -1,3 +1,271 @@
-.photo-single-container {
-    background-color: beige;
+.single-photo-container{
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1.5fr 0.5fr;
+    grid-template-rows: 1fr 1fr 1fr 0.5fr 1.5fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". displayed-photo displayed-photo ."
+      ". displayed-photo displayed-photo ."
+      ". displayed-photo displayed-photo ."
+      ". photo-details comment-section ."
+      ". add-comment-form comment-section ."
+      ". add-comment-form comment-section .";
+  }
+  .displayed-photo { grid-area: displayed-photo; }
+  .add-comment-form { grid-area: add-comment-form; }
+  .photo-details { grid-area: photo-details; }
+  .comment-section { grid-area: comment-section; }
+
+
+.single-photo-container{
+    background-color: rgba(255, 255, 255, 0.385);
 }
+
+#photo-detail-img{
+    width: 950px;
+    height: 600px;
+
+}
+
+.displayed-photo {
+    display: grid;
+    place-items: center;
+    padding-top:15px ;
+    padding-bottom:15px ;
+    background-color:#5f6162
+}
+
+.photo-details {
+    display: grid;
+    place-items: left;
+    padding-top: 10px;
+}
+
+
+textarea {
+    font-size: 12px;
+    position: relative;
+    box-sizing:border-box;
+    resize: none;
+    min-height: 80px;
+    width: 60%;
+    overflow: hidden;
+    border-radius: 3px;
+    padding: 10px;
+    border: 1px solid rgb(60, 59, 59);
+}
+
+
+.edit-comment-btns
+ {
+
+    background-color: transparent;
+    border: none;
+    font-size: 20px
+}
+
+.edit-comment-btns:hover {
+    color: #5f6162;
+    cursor: pointer;
+}
+
+.edit-formBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 30px
+}
+
+
+
+.comment-btn {
+    display: grid;
+    justify-content: flex-end;
+}
+
+.comment-button-container {
+    padding: 5px;
+
+}
+
+#submissions-buttons {
+
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #fff;
+    background: #050607;
+    line-height: 1.15;
+    font-size: 12px;
+
+
+}
+#submissions-buttons:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #5f6162;
+}
+
+
+.comment-user {
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+
+.photo-detail-date {
+    font-size: 15px;
+}
+
+.photo-detail-location {
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+}
+
+.photo-detail-location:hover {
+    color: rgb(56, 53, 53);
+}
+
+.comment-button-containers {
+   display: flex;
+   width: 373px;
+   justify-content: space-between;
+    margin-left: 24px;
+}
+
+
+
+.comment-section-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.edit-formBtn {
+    font-size: 20px;
+}
+
+.edit-formBtn:hover {
+    color: grey;
+    cursor: pointer;
+}
+
+#new-comment-input {
+    width: 400px;
+}
+
+
+.comment-section {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#comments-header {
+    padding-left: 9px;
+    display: flex;
+    justify-content: center;
+}
+
+.comment-form-div:hover .edit-formBtn {
+    color: rgb(0, 0, 0);
+    display:inline-block;
+    cursor: pointer;
+
+
+}
+
+.comment-form-div:hover {
+    background-color: rgb(235, 233, 233);
+    cursor: pointer;
+    border: 1px black solid;
+}
+
+.edit-formBtn {
+  color:white
+}
+
+
+
+
+/* .photo-single-page {
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+}
+
+.photo-display-container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.848);
+
+}
+
+#photo-detail-img {
+    max-height: 80%;
+    margin: auto;
+    max-width: 80;
+    padding-top:15px ;
+    padding-bottom:15px ;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+#photo-detail-container {
+    display: grid;
+    justify-items: center;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    vertical-align: baseline;
+    padding: 0;
+    margin: 0;
+
+
+}
+
+
+
+
+.comment-form-container{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    height: 40px;
+}
+
+
+.photo-detail-info {
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.edit-comment-btns
+ {
+
+    background-color: transparent;
+    border: none;
+    font-size: 30px
+}
+
+.edit-formBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 30px
+}
+
+
+
+.comment-btn {
+    display: grid;
+    justify-content: flex-end;
+} */

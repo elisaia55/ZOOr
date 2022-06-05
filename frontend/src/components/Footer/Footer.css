@@ -1,34 +1,32 @@
 #splash-footer-container{
+
+
+background-color:rgb(0, 0, 0);
+
+
+
+
+
+
 display: flex;
-align-items: center;
-width: 100vw;
-justify-content: space-around;
-background-color:black;
-height: 50px;
-position: sticky;
+justify-content: space-between;
+position: fixed;
 bottom: 0;
-left:0;
+width: 100vw
 
 
-text-align: center;
-
-transform:  translateY(9px);
 
 
 }
 
 #splash-footer-nav {
 
-    align-items: center;
-    display: flex;
-    flex-basis: auto;
-    flex-grow: 1;
-    flex-shrink: 1;
-    justify-content: space-around;
-    bottom: 0;
-    left:0;
-    position: relative;
-    padding: px;
+width: 100%;
+display: flex;
+justify-content: space-evenly;
+height: 35px;
+align-items: center;
+
 }
 
 .footer-btns {
@@ -36,7 +34,7 @@ transform:  translateY(9px);
     color: grey;
     font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
     font-size: 14px;
-    line-height: 16.8px;
+
     margin-right: 6px;
     font-size: 14px;
     text-align: center;

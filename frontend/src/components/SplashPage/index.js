@@ -47,7 +47,7 @@ const SplashPage = () => {
         <div className="splash-nav-container">
             <div>
                 <div className="video-container">
-                    <video autoPlay loop muted id="video-bg">
+                    <video className="video" autoPlay loop muted id="video-bg">
                         <source
                             src={ video }
                             type="video/mp4">
@@ -55,21 +55,27 @@ const SplashPage = () => {
                         </source>
                     </video>
                     <div id="splash-text-container">
-                        <h2 id="splash-title">Find your inspiration.</h2>
-                        <p className="splash-p-tag">Join the ZOOr community, home to tens of billions of photos and 2 million groups.</p>
-                        { (!sessionUser) ? <a href="/signup">
-                            <button className="splash-mainBtn"> Start for Free </button>
-                        </a> : <a href="/photos">
-                            <button>Explore</button>
+                        <div className="splash-text">
 
-                        </a>
-                        }
+                            <h2 id="splash-title">Find your inspiration.</h2>
+                            <div className="text-description-container">
+                                <p className="splash-p-tag">Join the ZOOr community, home to tens of billions of photos and 2 million groups.</p>
+
+                            </div>
+                            { (!sessionUser) ? <a href="/signup">
+                                <button className="splash-mainBtn"> Start for Free </button>
+                            </a> : <a href="/photos">
+
+
+                            </a>
+                            }
+                        </div>
                     </div>
 
                 </div>
-                <a href="https://www.youtube.com/" className="owner">CREDIT</a>
             </div>
 
+            <a href="https://www.youtube.com/watch?v=Pe0Ci3z5xTw&t=6s" className="owner">Wildlife Animals by 8k InfoNature</a>
         </div>
     )
 

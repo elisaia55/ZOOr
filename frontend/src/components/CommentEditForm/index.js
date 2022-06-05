@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editComment, destroyComment, } from '../../store/comment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRotate, faPenToSquare, faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 
 const CommentEditForm = ({ photo, comment, setEditCommentForm }) => {
@@ -54,19 +56,19 @@ const CommentEditForm = ({ photo, comment, setEditCommentForm }) => {
     return (
 
         <div className='comment-form-container'>
-            <p className='comment-form-header'>EDIT COMMENT of { comment.comment } </p>
+            <p className='comment-form-header'> </p>
             <form className='comment-form'>
                 { errors.length >= 0 &&
                     <ul>
                         { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
                     </ul>
                 }
-                <label>Comment</label>
-                <input onChange={ (e) => setCommentNew(e.target.value) } id='new-comment-input' type='text' placeholder='New Comment Here' value={ commentNew }></input>
-                <div className='comment-button-container'>
-                    <button type='button' id='submission-buttons' onClick={ e => handleEditSubmit(e) }>COMMENT EDIT BUTTON</button>
-                    <button type='button' id='submission-buttons' onClick={ e => deleteHandler(e) }>COMMENT DELETE BUTTON</button>
-                    <button type='button' id='submission-buttons' onClick={ e => resetHandler(e) }>COMMENT RESET BUTTON</button>
+
+                <textarea onChange={ (e) => setCommentNew(e.target.value) } id='new-comment-input' type='text' placeholder={ comment.comment } defaultValue={ commentNew }></textarea>
+                <div className='comment-button-containers'>
+                    <button type='button' id='submission-edit-buttons' className='edit-comment-btns' onClick={ e => handleEditSubmit(e) }><FontAwesomeIcon icon={ faPenToSquare } /></button>
+                    <button type='button' id='submission-reset-buttons' className='edit-comment-btns' onClick={ e => resetHandler(e) }><FontAwesomeIcon icon={ faRotate } /></button>
+                    <button type='button' id='submission-delete-buttons' className='edit-comment-btns' onClick={ e => deleteHandler(e) }><FontAwesomeIcon icon={ faTrashCan } /></button>
 
                 </div>
             </form>

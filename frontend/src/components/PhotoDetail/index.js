@@ -5,11 +5,13 @@ import { useHistory, useParams } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { getPhotoComments } from '../../store/comment';
 
+import Likes from '../Likes'
 import CommentForm from '../CommentForm'
 import CommentDisplay from '../CommentDisplay'
 import { getUsers } from '../../store/users'
 
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-solid-svg-icons'
 
 const PhotoDetail = () => {
 
@@ -59,41 +61,49 @@ const PhotoDetail = () => {
 
 
     return (
-        <div className='photo-single-container'>
-
+        <>
             { photo &&
-                <div id='page-container'>
-                    <img id='photo-detail-img' src={ photo.photoUrl }></img>
-                    <div id='photo-detail-container'>
+                <div className='single-photo-container'>
 
-                        <div className='photo-detail-info'>
-                            <hr className='photo-detail-hr'></hr>
-                            <h1 className='photo-detail-title'>{ photo.content } by { }</h1>
-                            <h2 className='photo-detail-date'>{ photo.createdAt }</h2>
-                            <h3><NavLink to='/' className="photo-detail-location"> { photo.city }, { photo.state } { photo.zipCode }</NavLink></h3>
-                            { sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ () => editHandler(photo) }>EDIT PHOTO DETAILS</button> }
-                            { sessionUser.id && <button onClick={ () => setDisplayComment(!displayComment) } className="comment-btn">COMMENT HERE</button> }
-                        </div>
-                        <div>
 
-                            { comments && displayComment && <CommentForm setDisplayComment={ setDisplayComment } photo={ photo } /> }
-                        </div>
 
+                    <div className='displayed-photo'>
+                        <img id='photo-detail-img' src={ photo.photoUrl }></img>
                     </div>
-                    <div className='comment-section-div'>
-                        <h3 id='comments-header'>Comments</h3>
+
+
+                    <div className='photo-details'>
+                        <h1 className='photo-detail-title'>"{ photo.content }"</h1>
+                        <p className='photo-detail-date'>Taken on { photo.createdAt }</p>
+                        <p><NavLink to='/' className="photo-detail-location"> { photo.city }, { photo.state } { photo.zipCode }</NavLink></p>
+                        <Likes />
+                        { sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ () => editHandler(photo) }>EDIT PHOTO DETAILS</button> }
+                    </div>
+
+                    <div className='add-comment-form'>
+                        { sessionUser.id && <CommentForm setDisplayComment={ setDisplayComment } photo={ photo } /> }
+                        {/* { comments && displayComment && <CommentForm setDisplayComment={ setDisplayComment } photo={ photo } /> } */ }
+                    </div>
+
+
+                    <div className='comment-section'>
+
+                        <h3 id='comments-header'></h3>
                         { (!commentsArray.length) && <p>No Comments...</p> }
-                        { commentsArray && commentsArray.length && commentsArray.map(comment => <CommentDisplay key={ comment.id } photo={ photo } comment={ comment } />) }
+                        { commentsArray && commentsArray.length && commentsArray.reverse().map(comment => <CommentDisplay key={ comment.id } photo={ photo } comment={ comment } />) }
+
+
                     </div>
+
+
+
+
+
+
+
                 </div>
-
-
-
-
-
             }
-
-        </div>
+        </>
     )
 
 }

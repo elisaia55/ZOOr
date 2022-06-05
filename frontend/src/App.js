@@ -14,6 +14,7 @@ import './index.css'
 import { getPhotos } from "./store/photos";
 import { getUsers } from "./store/users";
 import { getPhotoComments } from "./store/comment";
+import GeoMap from "./components/GeoMap";
 
 
 
@@ -48,10 +49,10 @@ function App() {
 
   return (
 
+
     isLoaded && (
 
       <>
-        {/* <GoogleMaps /> */ }
 
 
 
@@ -59,7 +60,7 @@ function App() {
         { isLoaded && (
 
           <Switch>
-            <Route exact path='/' isLoaded={ isLoaded }>
+            <Route exact path='/' >
 
               <SplashPage />
             </Route>

@@ -27,6 +27,7 @@ const CommentForm = ({ photo, setDisplayComment }) => {
             .then(() => {
 
                 setComment('')
+                setDisplayComment(false)
             })
             .catch(async (res) => {
                 const data = await res.json();
@@ -41,19 +42,19 @@ const CommentForm = ({ photo, setDisplayComment }) => {
 
     return (
         <div className='comment-form-container'>
-            <p className='comment-form-header'>EDIT COMMENT: </p>
+            <p className='comment-form-header'></p>
             <form className='comment-form'>
                 { errors.length > 0 &&
                     <ul>
                         { errors.map((error, idx) => <li key={ idx }>{ error }</li>) }
                     </ul>
                 }
-                <label>Comment</label>
-                <textarea onChange={ (e) => setComment(e.target.value) } id='new-comment-input' type='text' placeholder='New Comment Here' defaultValue={ comment }></textarea>
-                <div className='comment-button-container'>
-                    <button type='button' id='submission-buttons' onClick={ e => handleSubmit(e) }>Post Comment</button>
 
-                    <button type='button' id='submission-buttons' onClick={ e => resetHandler(e) }>SUBMIT Cancel</button>
+                <textarea onChange={ (e) => setComment(e.target.value) } id='new-comment-input' type='text' placeholder='Add a comment...' value={ comment }></textarea>
+                <div className='comment-button-container'>
+                    <button type='button' id='submissions-buttons' onClick={ e => handleSubmit(e) }>Post Comment</button>
+
+
 
                 </div>
             </form>

@@ -1,6 +1,4 @@
-* {
-    margin:0;
-}
+
 
 #home-image-btn {
     margin-left: 13px;
@@ -36,7 +34,7 @@ height: 30px;
 
 
     height: 50px;
-    padding: 3px;
+
     justify-content: space-between;
     align-items: center;
 

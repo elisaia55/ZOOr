@@ -1,13 +1,14 @@
 
 .searchResultsContainer {
-
+position: relative;
   background: rgba(0, 0, 0, 0.486);
   border: 1px black solid;
   z-index:600;
-  width: 176px;
+  left: 16px;
   text-align: center;
+  width: 200px;
   /* transform:translateY(6px); */
-  transform:translateX(3px);
+
 
 }
 
@@ -52,7 +53,7 @@ background-color: transparent;
   display: flex;
   align-items: center;
   background: transparent;
-  padding: 5px 1px;
+
   border-radius: 2px;
 }
 
@@ -63,9 +64,11 @@ background-color: transparent;
 
 .search {
   color: rgb(255, 255, 255);
-  transform:  translateX(-13px);
+
   background: none;
   outline: none;
+  width: 200px;
+  height: 23px;
 
 
 }

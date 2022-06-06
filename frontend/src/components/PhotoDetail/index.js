@@ -54,7 +54,7 @@ const PhotoDetail = () => {
 
 
 
-    const editHandler = photo => {
+    const editHandler = (photo) => {
         history.push(`/photo/edit/${photo.id}`)
     }
 

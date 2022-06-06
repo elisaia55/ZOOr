@@ -1,0 +1,46 @@
+#newPhoto-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    max-height:100vh;
+    align-content: center;
+    margin-top: 50px;
+    background-color: grey;
+
+}
+
+
+.errors-container {
+    display: flex;
+    align-content: center;
+    max-width: 200px;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+.add-photo-label, .add-photo-input {
+    display: flex;
+    width: 300px;
+    margin: 5px;
+}
+
+#newPhoto-form-submit {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #fff;
+    background: #000000a6;
+    line-height: 1.15;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+
+}

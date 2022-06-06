@@ -16,10 +16,6 @@ module.exports = {
           key: 'id'
         }
       },
-      albumId: {
-        type: Sequelize.INTEGER,
-        references: { model: "Albums" }
-      },
       photoUrl: {
         allowNull: false,
         type: Sequelize.TEXT
@@ -39,14 +35,6 @@ module.exports = {
       zipCode: {
 
         type: Sequelize.INTEGER
-      },
-      lat: {
-
-        type: Sequelize.DECIMAL(10, 8)
-      },
-      lng: {
-
-        type: Sequelize.DECIMAL(11, 8)
       },
       createdAt: {
         allowNull: false,

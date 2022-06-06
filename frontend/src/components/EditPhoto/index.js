@@ -18,8 +18,7 @@ const EditPhotoForm = () => {
     const [state, setState] = useState(editPhoto.state || '');
     const [city, setCity] = useState(editPhoto.city || '');
     const [zipCode, setZipcode] = useState(editPhoto.zipCode || '');
-    const [lat, setLat] = useState(editPhoto.lat || '');
-    const [lng, setLng] = useState(editPhoto.lng || '');
+
 
     const [errors, setErrors] = useState([]);
     const history = useHistory()
@@ -48,11 +47,10 @@ const EditPhotoForm = () => {
             state,
             city,
             zipCode,
-            lat,
-            lng
+
         }
         dispatch(editPhotoThunk(editingPhoto))
-            .then(() => history.push(`/photo/${photo.id}`))
+            .then(() => history.push(`/photo/${photoId}`))
             .catch(async (res) => {
                 const data = await res.json()
                 if (data && errors) setErrors(data.errors)
@@ -117,22 +115,6 @@ const EditPhotoForm = () => {
                             onChange={ e => setZipcode(e.target.value) }
                             placeholder='Photo Zipcode'
                         />
-                        <label className='edit-photo-labels'>Latitude:</label>
-                        < input className="edit-photo-inputs"
-                            name="latitude"
-                            type='text'
-                            value={ lat }
-                            onChange={ e => setLat(e.target.value) }
-                            placeholder='Photo Latitude'
-                        />
-                        <label className='edit-photo-labels'>Longitude:</label>
-                        < input className="edit-photo-inputs"
-                            name="longitude"
-                            type='text'
-                            value={ lng }
-                            onChange={ e => setLng(e.target.value) }
-                            placeholder='Photo Longitude'
-                        />
                         <div className='edit-btns'>
                             <button className='photo-detail-btns' id="editPhoto-btn" type="submit">Submit</button>
 
@@ -140,14 +122,11 @@ const EditPhotoForm = () => {
 
                         </div>
                         <div className='editing-photo-details'>
-                            {/* <p>{ photo.content }</p>
-                            <p>{ photo.state }</p>
-                            <p>{ photo.city }</p> */}
 
                         </div>
 
                         <div className='editing-photo-display'>
-                            <img className='editing-img-display' src={ photo.photoUrl } ></img>
+                            <img className='editing-img-display'  ></img>
 
                         </div>
                         <div className='extra'>

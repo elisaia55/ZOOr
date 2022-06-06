@@ -17,8 +17,7 @@ module.exports = {
         state: "California",
         city: "Oakland",
         zipCode: "94607",
-        lat: "37.804363",
-        lng: "-122.271111",
+
 
       },
       {
@@ -29,8 +28,7 @@ module.exports = {
         state: "Texas",
         city: "Dallas",
         zipCode: "75001",
-        lat: "32.779167",
-        lng: "-96.808891",
+
 
       },
       {
@@ -41,8 +39,7 @@ module.exports = {
         state: "Oregon",
         city: "Beaverton",
         zipCode: "97005",
-        lat: "45.485168",
-        lng: "-122.804489",
+
 
 
       }

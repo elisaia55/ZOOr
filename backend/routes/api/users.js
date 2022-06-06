@@ -11,11 +11,19 @@ const validateSignup = [
     check('email')
         .exists({ checkFalsy: true })
         .isEmail()
-        .withMessage('Please provide a valid email.'),
+        .withMessage('Please provide a valid email.')
+        .custom((attempt) => {
+            return User.findOne({ where: { email: attempt } })
+                .then((user) => { if (user) { return Promise.reject('Email Address is already in use with another user') } })
+        }),
     check('username')
         .exists({ checkFalsy: true })
         .isLength({ min: 4 })
-        .withMessage('Please provide a username with at least 4 characters.'),
+        .withMessage('Please provide a username with at least 4 characters.')
+        .custom((attempt) => {
+            return User.findOne({ where: { username: attempt } })
+                .then((user) => { if (user) { return Promise.reject('Username already exists') } })
+        }),
     check('username')
         .not()
         .isEmail()

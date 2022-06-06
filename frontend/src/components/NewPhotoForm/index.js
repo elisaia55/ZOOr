@@ -11,8 +11,7 @@ const NewPhotoForm = () => {
     const [state, setState] = useState('');
     const [city, setCity] = useState('');
     const [zipCode, setZipcode] = useState('');
-    const [lat, setLat] = useState('');
-    const [lng, setLng] = useState('');
+
     const [errors, setErrors] = useState([])
 
     const history = useHistory();
@@ -36,8 +35,6 @@ const NewPhotoForm = () => {
             state,
             city,
             zipCode,
-            lat,
-            lng
         }
         dispatch(createPhoto(newPhoto))
             .then(() => history.push('/'))
@@ -53,65 +50,59 @@ const NewPhotoForm = () => {
     return (
         <>
             <form id='newPhoto-form' onSubmit={ e => handleOnSubmit(e) }>
-                <ul>
-                    { errors.map((error, idx) => <li className="errors" key={ idx }>{ error }</li>) }
-                </ul>
-                <label>Title:</label>
+                <h1>Add New Photo</h1>
+                <div className='errors-container'>
+                    <ul>
+                        { errors.map((error, idx) => <li className="errors" key={ idx }>{ error }</li>) }
+                    </ul>
+
+                </div>
+                <label className='add-photo-label'>Title:</label>
                 <input
+                    className="add-photo-input"
                     name='title'
                     value={ content }
                     onChange={ e => setContent(e.target.value) }
                     type="text"
                     placeholder="Title your photo"
                 />
-                <label>Picture URL:</label>
+                <label className='add-photo-label'>Picture URL:</label>
                 <input
+                    className="add-photo-input"
                     name="photoUrl"
                     type='text'
                     value={ photoUrl }
                     onChange={ e => setPhotoUrl(e.target.value) }
                     placeholder='Image Url'
                 />
-                <label>State:</label>
+                <label className='add-photo-label'>State:</label>
                 <input
+                    className="add-photo-input"
                     name="state"
                     type='text'
                     value={ state }
                     onChange={ e => setState(e.target.value) }
                     placeholder='State of Photo'
                 />
-                <label>City:</label>
+                <label className='add-photo-label'>City:</label>
                 <input
+                    className="add-photo-input"
                     name="city"
                     type='text'
                     value={ city }
                     onChange={ e => setCity(e.target.value) }
                     placeholder='City of Photo'
                 />
-                <label>ZipCode:</label>
+                <label className='add-photo-label'>ZipCode:</label>
                 <input
+                    className="add-photo-input"
                     name="zipcode"
                     type='text'
                     value={ zipCode }
                     onChange={ e => setZipcode(e.target.value) }
                     placeholder='Photo Zipcode'
                 />
-                <label>Latitude:</label>
-                <input
-                    name="latitude"
-                    type='text'
-                    value={ lat }
-                    onChange={ e => setLat(e.target.value) }
-                    placeholder='Photo Latitude'
-                />
-                <label>Longitude:</label>
-                <input
-                    name="longitude"
-                    type='text'
-                    value={ lng }
-                    onChange={ e => setLng(e.target.value) }
-                    placeholder='Photo Longitude'
-                />
+
                 <button id="newPhoto-form-submit" type="submit">Submit</button>
 
 

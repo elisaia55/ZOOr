@@ -10,8 +10,8 @@ const validatePhoto = [
     check('photoUrl')
         .exists({ checkFalsy: true })
         .withMessage('Please provide an image URL')
-        .isLength({ max: 1000 })
-        .withMessage('Photo URL must not be more than 1000 characters'),
+        .isURL()
+        .withMessage('Photo must be a URL'),
     check('content')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the title of your photo.')
@@ -20,34 +20,23 @@ const validatePhoto = [
     check('state')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the state of where your photo was taken.')
-        .isLength({ max: 100 })
-        .withMessage('State must not be more than 100 characters'),
+        .isLength({ max: 25 })
+        .withMessage('State must not be more than 2 characters'),
     check('city')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the city of where your photo was taken.')
-        .isLength({ max: 100 })
-        .withMessage('City must not be more than 100 characters'),
+        .isLength({ max: 30 })
+        .withMessage('City must not be more than 30 characters'),
+
     check('zipCode')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the zipcode of where your photo was taken.')
-        .isLength({ max: 25 })
-        .withMessage('Zipcode must not be more than 25 characters')
-        .isDecimal()
-        .withMessage('Must be a number'),
-    check('lat')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide the latitude of where your photo was taken')
-        .isLength({ max: 25 })
-        .withMessage('Latitude must not be more than 25 characters')
-        .isDecimal()
-        .withMessage('Must be a number'),
-    check('lng')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide the longitude of where your photo was taken')
-        .isLength({ max: 25 })
-        .withMessage('Longitude must not be more than 25 characters')
-        .isDecimal()
-        .withMessage('Must be a number'),
+        .matches(/^[0-9]{5}(?:-[0-9]{4})?$/)
+        .withMessage('Zipcode must be in format that matches 5 digits')
+        .isLength({ max: 20 })
+        .withMessage('Zipcode must not be more than 20 characters'),
+
+
     handleValidationErrors
 ];
 
@@ -73,8 +62,7 @@ router.put('/', validatePhoto, requireAuth, asyncHandler(async (req, res) => {
         state,
         city,
         zipCode,
-        lat,
-        lng
+
     } = req.body
 
     const editPhoto = await Photo.findByPk(id)
@@ -86,8 +74,6 @@ router.put('/', validatePhoto, requireAuth, asyncHandler(async (req, res) => {
             state,
             city,
             zipCode,
-            lat,
-            lng
         })
     return res.json(newPhoto)
 }))

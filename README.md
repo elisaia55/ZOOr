@@ -23,7 +23,8 @@ Explore the Wild:
 ## Sign-Up Page 
 ![image](https://user-images.githubusercontent.com/99278056/172106333-fb1438d4-f5f4-4f6f-bdac-7d63c95dcf9b.png)
 ## Photo-Display Page 
-![image](https://user-images.githubusercontent.com/99278056/172106508-3838429d-f445-4fe8-aa5b-891701582031.png)
+![image](https://user-images.githubusercontent.com/99278056/172111934-7ff94216-32f5-4ee4-bbcf-1239575ca59d.png)
+
 
 ## Getting Started 
 

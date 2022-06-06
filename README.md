@@ -28,7 +28,7 @@ Explore the Wild:
 
 ## Getting Started 
 
-1. Clone this repo `[git clone git@hi](https://github.com/elisaia55/ZOOr)
+1. Clone this repo `https://github.com/elisaia55/ZOOr`
 
 2. `npm install` in the frontend packages and backend packages
 

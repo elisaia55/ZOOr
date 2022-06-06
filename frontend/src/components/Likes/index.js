@@ -28,7 +28,7 @@ const Likes = ({ photoId }) => {
             const totalLikes = likes.length
             setTotalLikes(totalLikes)
         }
-        // getLikes()
+        getLikes()
     }, [dispatch, setTotalLikes, userId, photoId])
 
     const handleLike = async () => {
@@ -45,9 +45,14 @@ const Likes = ({ photoId }) => {
     }
 
     return (
-        <div className="div-like">
+        <div>
 
-            { sessionUser && <button onClick={ () => handleLike() } className={ 'button-unliked' }>{ !liked ? <i className="fa-regular fa-star"></i> : <i className="fa-solid fa-star"></i> }</button> } <p className='likeCount'>{ totalLikes }</p>
+            { sessionUser && <button onClick={ () => handleLike() } className={ 'button-unliked' }>{ !liked ? <i className="fa-regular fa-star"></i> : <i className="fa-solid fa-star"></i> }</button> } <p className='likeCount'></p>
+            <div className="div-like">
+            </div>
+
+
+            { totalLikes }
 
         </div>
     )

@@ -86,8 +86,7 @@ background-color: transparent;
 }
 
 .profile-btns {
-    background-color: transparent;
-    border: none;
+
 }
 
 .signup-button {
@@ -117,4 +116,29 @@ background-color: transparent;
 .fa-cloud-arrow-up:hover {
 color: rgba(250, 237, 218, 0.801);
 
+}
+
+
+.profile-btns {
+    height: 32px;
+    /* line-height: 64px; */
+   width: 75px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+
+
+    border-image-repeat: stretch;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: center;
+
+}
+
+.profile-btns:hover {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: rgb(202, 202, 202);
 }

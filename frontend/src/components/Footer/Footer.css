@@ -19,12 +19,30 @@ width: 100vw
 
 }
 
+.tech-3 {
+    height: 50px;
+    width: 75px;
+    background-color: none;
+    border: none;
+}
+
+.tech-2 {
+    height: 40px;
+    width: 40px;
+    background-color: none;
+    border: none;
+}
+
+.tech-2:hover {
+    box-shadow: 1px 1px 1px grey;
+}
+
 #splash-footer-nav {
 
 width: 100%;
 display: flex;
 justify-content: space-evenly;
-height: 35px;
+height: 45px;
 align-items: center;
 
 }

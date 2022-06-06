@@ -14,6 +14,7 @@ import './index.css'
 import { getPhotos } from "./store/photos";
 import { getUsers } from "./store/users";
 import { getPhotoComments } from "./store/comment";
+import AboutMe from "./components/AboutMe";
 
 
 
@@ -78,6 +79,9 @@ function App() {
             </Route>
             <Route exact path='/photo/:photoId'>
               <PhotoDetail />
+            </Route>
+            <Route exact path='/about'>
+              <AboutMe />
             </Route>
             <Route>
               Page Not Found

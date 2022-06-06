@@ -11,7 +11,6 @@ module.exports = {
     return queryInterface.bulkInsert('Photos', [
       {
         userId: 1,
-        albumId: 1,
         photoUrl: "https://cdn.pixabay.com/photo/2019/10/13/20/28/gorilla-4547188_960_720.jpg",
         content: "Chuck",
         state: "California",
@@ -22,7 +21,6 @@ module.exports = {
       },
       {
         userId: 1,
-        albumId: 1,
         photoUrl: "https://cdn.pixabay.com/photo/2017/05/19/18/51/lion-2327225_960_720.jpg",
         content: "Simba",
         state: "Texas",
@@ -33,7 +31,6 @@ module.exports = {
       },
       {
         userId: 1,
-        albumId: 1,
         photoUrl: "https://cdn.pixabay.com/photo/2017/10/21/22/58/animal-2876068_960_720.jpg",
         content: "Baby Chuck",
         state: "Oregon",

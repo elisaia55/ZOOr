@@ -69,6 +69,7 @@ const PhotoDetail = () => {
 
                     <div className='displayed-photo'>
                         <img id='photo-detail-img' src={ photo.photoUrl }></img>
+                        <Likes photoId={ photoId } />
                         { sessionUser.id === photo.userId && <button className='photo-detail-editBtn' onClick={ () => editHandler(photo) }><FontAwesomeIcon icon={ faPenToSquare } /></button> }
                     </div>
 
@@ -77,7 +78,6 @@ const PhotoDetail = () => {
                         <h1 className='photo-detail-title'> { photo.content } </h1>
                         <p className='photo-detail-date'>Taken on { photo.createdAt }</p>
                         <p><NavLink to='/' className="photo-detail-location"> { photo.city }, { photo.state } { photo.zipCode }</NavLink></p>
-                        <Likes photoId={ photoId } />
                     </div>
 
                     <div className='add-comment-form'>

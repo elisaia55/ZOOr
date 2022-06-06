@@ -45,14 +45,17 @@ const Likes = ({ photoId }) => {
     }
 
     return (
-        <div>
+        <div className='likes-container'>
+            <p className='likeCounter-p'>
+                { totalLikes }
+
+            </p>
 
             { sessionUser && <button onClick={ () => handleLike() } className={ 'button-unliked' }>{ !liked ? <i className="fa-regular fa-star"></i> : <i className="fa-solid fa-star"></i> }</button> } <p className='likeCount'></p>
             <div className="div-like">
             </div>
 
 
-            { totalLikes }
 
         </div>
     )

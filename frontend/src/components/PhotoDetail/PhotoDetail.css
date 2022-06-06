@@ -41,6 +41,7 @@
     display: grid;
     place-items: left;
     padding-top: 10px;
+    margin-left: 110px;
 }
 
 
@@ -102,6 +103,8 @@ textarea {
     background: #050607;
     line-height: 1.15;
     font-size: 12px;
+    margin-left:105px ;
+    margin-bottom: 100px;
 
 
 }
@@ -140,14 +143,16 @@ textarea {
 
 
 .comment-section-container {
-    display: flex;
+   position: relative;
     align-items: center;
     justify-content: space-between;
+
+
 
 }
 
 .edit-formBtn {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .edit-formBtn:hover {
@@ -157,14 +162,20 @@ textarea {
 
 #new-comment-input {
     width: 400px;
+    left: 110px;
 }
 
 
 .comment-section {
-    padding-top: 20px;
+
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    align-items: over;
+    width: 900px;
+
+
+
 }
 
 #comments-header {
@@ -195,7 +206,7 @@ textarea {
 .photo-detail-editBtn {
     border: none;
     background-color: transparent;
-    font-size: 30px;
+    font-size: 15px;
     display:flex;
     max-width: 100%;
     margin-top: 10px;
@@ -207,8 +218,16 @@ textarea {
     cursor: pointer;
 }
 
+.likes-container {
+    font-size: 25px;
+    display: flex;
 
+    margin-left: 920px;
+}
 
+#new-comment-input::placeholder {
+    color: black;
+}
 /* .photo-single-page {
     background-color: rgb(255, 255, 255);
     margin: 0;

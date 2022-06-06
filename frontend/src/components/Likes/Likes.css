@@ -7,15 +7,20 @@
 
 .fa-star:hover {
 
-    color: rgb(255, 255, 0);
+    color: rgb(0, 0, 0);
     cursor: pointer;
 }
 
 .fa-star {
     font-size: 13px;
+    color: rgb(0, 0, 0);
 }
 
-.fa-solid + . {
-    color: rgb(255, 0, 0);
+.fa-solid  {
+    color: rgb(255, 217, 4);
 
+}
+
+#likeCounter-p {
+    font-size: 6px;
 }

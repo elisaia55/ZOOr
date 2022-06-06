@@ -21,8 +21,9 @@ export default function Photos() {
 
     return (
         <>
-            <h1 className="h1-title">ZOOr Photo Gallery</h1>
+
             <div className="display-body">
+
                 <ul id="photos-container">
                     { photos.map(photo => (
                         <li key={ photo.id } id='img-li'>

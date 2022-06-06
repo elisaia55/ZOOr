@@ -19,21 +19,21 @@
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    filter: blur(2.5px);
+    filter: blur(1px);
 
   }
 
   #modal-content {
     position: absolute;
     display: flex;
-    border-radius: .5px;
-    background-color:rgba(0, 0, 0, 0.356);
-    height: 660px;
-    max-width: 385px;
+    border-radius: 1px;
+    background-color:rgba(0, 0, 0, 0.815);
+    height: 650px;
+    width: 450px;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    border: 1px solid black;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 4px;
     margin-top: 124px;
   }
@@ -53,6 +53,7 @@
     height: 40px;
     width:200px;
     top: 10px;
+    border: 1px white solid;
   }
 
   #login-container {
@@ -67,23 +68,30 @@
 
 
   .header-login-logo {
-    height: 350px;
-    width: 510px;
-    max-width: fit-content;
-    max-height: fit-content;
+    height: 250px;
+    width: 250px;
+    max-width: 450px;
+    margin-top: 20px;
+    margin-left: 85px;
+    display: flex;
   }
 
   .login-input-fields {
     height: 35px;
     width: 300px;
-    color: black;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
     background-color: transparent;
+    border: 1px white solid;
+    text-indent: 9px;
+    border-radius: 4px;
   }
 
   #demo-btn {
     width: 200px;
     height: 40px;
     margin-top: 15px;
+    border: 1px white solid;
   }
 
   .login-btns-container {
@@ -102,7 +110,7 @@
   height:40px;
   width: 300px;
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .login-input-fields {
@@ -110,7 +118,7 @@
   height:40px;
   width: 300px;
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .login-form-btns {
@@ -132,4 +140,26 @@
   box-shadow: 0 0 0 0 #fff, 0 0 0 2px #5f6162;
   color: #b1b1b1;
 
+}
+
+
+.login-footer-text {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+
+}
+
+.signup-redirect {
+  text-decoration: none;
+  color: green;
+}
+
+.signup-redirect:hover {
+  color: rgb(7, 231, 7);
+  font-size:13px;
 }

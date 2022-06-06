@@ -76,6 +76,11 @@ function LoginForm() {
                     <button type='submit' className="login-form-btns" id="login-form-btns">Log In</button>
                     <button type='submit' className="login-form-btns" onClick={ (e) => handleDemoSubmit(e) } id="demo-btn">Demo User</button>
                 </div>
+                <div className="login-footer-text">
+
+                    <p>Not a ZOOr member? <a className="signup-redirect" href="/signup">Sign up here</a></p>
+
+                </div>
             </div>
         </form>
 

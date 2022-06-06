@@ -23,7 +23,7 @@ const CommentEditForm = ({ photo, comment, setEditCommentForm }) => {
             photoId: photo.id
 
         }
-        console.log("PLEASE WORK PLEASSEEE", newestComment)
+
 
         dispatch(editComment(newestComment))
             .then(() => {

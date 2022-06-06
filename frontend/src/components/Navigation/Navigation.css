@@ -1,20 +1,20 @@
 
 
 #home-image-btn {
-    margin-left: 13px;
-    width: 140px;
-    border-radius: 120px;
+
+    width: 100px;
+    height:100px;
 
 
 }
 #home-image-btn:hover {
-    transform: scale(1.25);
+    transform: scale(1.1);
     /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.507) ; */
 }
 
 .nav-container {
     height: 45px;
-    background-color: rgba(0, 0, 0, 0.808);
+    background-color: rgba(0, 0, 0, 0.815);
 
 }
 
@@ -85,8 +85,8 @@ background-color: transparent;
 
 }
 
-.profile-btns {
-
+.fa-search {
+    color: white;
 }
 
 .signup-button {

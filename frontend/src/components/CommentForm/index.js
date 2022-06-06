@@ -33,7 +33,7 @@ const CommentForm = ({ photo, setDisplayComment }) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors)
             }, [dispatch, newComment])
-        console.log("SUCCESFULLY POSTED", comment)
+
     }
 
     const resetHandler = (e) => {

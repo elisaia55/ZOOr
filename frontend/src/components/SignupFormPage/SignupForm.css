@@ -1,10 +1,11 @@
 .sign-up-container{
-max-width: 100%;
-max-height: 100%;
+width: 600px;
+height: 600px;
 }
 
 .content-container {
 
+    margin-top: 55px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,9 +13,9 @@ max-height: 100%;
     text-align:justify;
     background-color:rgba(0, 0, 0, 0.815);
 
-    max-width: 350px;
-    height: 580px;
-    margin-top: 40px;
+    width: 450px;
+    height: 650px;
+
     border-radius: 4px;
 
 
@@ -107,6 +108,7 @@ max-height: 100%;
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
+    width: 320px;
 }
 
 .signup-logo {

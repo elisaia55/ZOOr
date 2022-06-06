@@ -88,6 +88,16 @@ right: 0;
     box-shadow: rgba(139, 139, 133, 0.705);
 }
 
+.owner{
+color: white;
+  position: absolute;
+  bottom: 110px;
+  right: 850px;
+  text-decoration: none;
+
+
+}
+
 
 
 .owner:hover {
@@ -116,15 +126,4 @@ right: 0;
     font-size: 60px;
     color: white;
     overflow-wrap: break-word;
-}
-
-.owner{
-
-    color: white;
-  position: absolute;
-  bottom: 110px;
-  right: 850px;
-  text-decoration: none;
-  font-style: italic;
-
 }

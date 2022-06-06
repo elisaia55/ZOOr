@@ -17,9 +17,6 @@ function SignupFormPage() {
 
     if (sessionUser) return <Redirect to="/" />;
 
-    function onCaptchaChange(value) {
-        console.log("Captcha value", value)
-    }
 
 
     const handleSubmit = (e) => {

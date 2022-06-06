@@ -45,7 +45,7 @@ export const addLikeThunk = like => async dispatch => {
 
 export const getLikeThunk = photoId => async dispatch => {
     const res = await csrfFetch(`/api/likes/${photoId}`)
-    console.log({ photoId }, "======================> GET THUNK")
+
     const likes = await res.json()
     dispatch(getLikes(likes))
     return likes

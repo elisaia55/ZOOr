@@ -9,7 +9,7 @@ const { Like } = require('../../db/models');
 router.get('/:photoId', asyncHandler(async (req, res) => {
     const { photoId } = req.params
 
-    console.log({ photoId }, "---------------------------------------------------> inside ROUTER ")
+
     const photoLikes = await Like.findAll({ where: { photoId } })
 
     res.json(photoLikes)
@@ -17,9 +17,9 @@ router.get('/:photoId', asyncHandler(async (req, res) => {
 
 router.post('/', requireAuth, asyncHandler(async (req, res) => {
     const newLike = await Like.create(req.body)
-    console.log(newLike)
+
     const createdLike = await newLike.save()
-    console.log(newLike)
+
     res.json(createdLike)
 }))
 

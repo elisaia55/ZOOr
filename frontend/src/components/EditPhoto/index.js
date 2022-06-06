@@ -68,10 +68,12 @@ const EditPhotoForm = () => {
             <div className='edit-photoPage-container'>
 
                 <form id='edit-photo-form' onSubmit={ e => handleOnSubmit(e) }>
+                    <div className='errors-container'>
 
-                    <ul>
-                        { errors.map((error, idx) => <li className='errors' key={ idx }>{ error }</li>) }
-                    </ul>
+                        <ul>
+                            { errors.map((error, idx) => <li className='errors' key={ idx }>{ error }</li>) }
+                        </ul>
+                    </div>
                     <div className='photo-form-edit-container'>
 
 
